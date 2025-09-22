@@ -1,0 +1,70 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"vcs": {
+		"enabled": false,
+		"clientKind": "git",
+		"useIgnoreFile": false
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"style": {
+				"useImportType": "warn",
+				"useSelfClosingElements": "warn",
+				"noNonNullAssertion": "off",
+				"useExponentiationOperator": "off"
+			},
+			"a11y": {
+				"noAutofocus": "off",
+				"useKeyWithClickEvents": "off",
+				"noLabelWithoutControl": "off"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "off",
+				"noUnusedImports": "warn",
+				"useJsxKeyInIterable": "error"
+			},
+			"complexity": {
+				"noForEach": "off"
+			},
+			"suspicious": {
+				"noThenProperty": "off",
+				"noArrayIndexKey": "off"
+			}
+		}
+	},
+	"formatter": {
+		"lineWidth": 120,
+		"indentStyle": "tab",
+		"indentWidth": 1
+	},
+	"javascript": {
+		"formatter": {
+			"jsxQuoteStyle": "double",
+			"trailingCommas": "none",
+			"quoteStyle": "single"
+		}
+	},
+	"json": {
+		"formatter": {
+			"trailingCommas": "none"
+		}
+	},
+	"overrides": [
+		{
+			"includes": ["tsconfig.*"],
+			"formatter": { "enabled": false },
+			"linter": { "enabled": false }
+		}
+	],
+
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	}
+}
