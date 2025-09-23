@@ -1,12 +1,17 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { LoginForm } from '@/features/auth/ui/components/login-form.tsx';
+import { LoginPage } from '@/features/auth/ui/pages/login.page.tsx';
+import { SignupPage } from '@/features/auth/ui/pages/signup.page.tsx';
 import { RequireAuth } from '@/router/routes/require-auth.tsx';
 
 export function AppRouter() {
 	const router = createBrowserRouter([
 		{
 			path: '/login',
-			element: <LoginForm />
+			element: <LoginPage />
+		},
+		{
+			path: '/signup',
+			element: <SignupPage />
 		},
 		{
 			element: <RequireAuth />,
