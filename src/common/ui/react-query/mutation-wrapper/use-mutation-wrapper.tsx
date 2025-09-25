@@ -29,7 +29,7 @@ const useMutationWrapper = <TData = unknown, TError = unknown, TVariables = void
 	): Promise<TData | undefined> => {
 		try {
 			return await mutation.mutateAsync(variables, options);
-		} catch (err) {
+		} catch (_err) {
 			return undefined;
 		}
 	};
