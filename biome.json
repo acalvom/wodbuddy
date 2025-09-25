@@ -31,7 +31,8 @@
 			},
 			"suspicious": {
 				"noThenProperty": "off",
-				"noArrayIndexKey": "off"
+				"noArrayIndexKey": "off",
+				"noUnknownAtRules": "off"
 			}
 		}
 	},
