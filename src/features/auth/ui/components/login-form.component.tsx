@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { z } from 'zod';
 import { useLogin } from '../controllers/use-login.hook';
 
@@ -12,6 +12,7 @@ const loginSchema = z.object({
 type LoginInputs = z.infer<typeof loginSchema>;
 
 export function LoginForm() {
+	const navigate = useNavigate();
 	const { mutateAsync: login, isPending, error } = useLogin();
 
 	const {
@@ -22,8 +23,9 @@ export function LoginForm() {
 		resolver: zodResolver(loginSchema)
 	});
 
-	const onSubmit = (data: LoginInputs) => {
-		login(data);
+	const onSubmit = async (data: LoginInputs) => {
+		await login(data);
+		navigate('/');
 	};
 
 	return (
