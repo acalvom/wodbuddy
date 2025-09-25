@@ -2,10 +2,12 @@ import { LogOut } from 'lucide-react';
 import { Link, useNavigate } from 'react-router';
 import logo from '@/assets/images/logo.png';
 import { Button } from '@/common/ui/shade-ui/components/ui/button.tsx';
+import { useAuthEvents } from '@/features/auth/ui/controllers/use-auth.events.ts';
 import { useGetCurrentUser } from '@/features/auth/ui/controllers/use-get-current-user.hook.ts';
 import { useLogout } from '@/features/auth/ui/controllers/use-logout.hook.ts';
 
 export const Header = () => {
+	useAuthEvents();
 	const navigate = useNavigate();
 	const { data: currentUser } = useGetCurrentUser();
 	const { mutateAsync: logout } = useLogout();
