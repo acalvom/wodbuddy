@@ -25,7 +25,7 @@ export function LoginForm() {
 
 	const onSubmit = async (data: LoginInputs) => {
 		await login(data);
-		navigate('/');
+		navigate('/home');
 	};
 
 	return (

@@ -20,7 +20,7 @@ export function AppRouter() {
 				},
 				{
 					element: <RequireAuth />,
-					children: [{ path: '/', element: <h2>Home - Protected</h2> }]
+					children: [{ path: '/home', element: <h2>Home - Protected</h2> }]
 				},
 				{
 					path: '/*',
