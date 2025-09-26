@@ -13,7 +13,7 @@ export function useAuth() {
 	const queryClient = useQueryClient();
 	const sessionService = AuthLocator.sessionService();
 
-	const { data: user, isLoading: isAuthLoading } = useGetAuthUser();
+	const { data: user, isLoading: isAuthLoading, isFetching: isAuthFetching } = useGetAuthUser();
 	const { mutateAsync: logout, isPending: isLogoutPending } = useLogout();
 	const { mutateAsync: login, isPending: isLoginPending, error } = useLogin();
 
@@ -37,7 +37,7 @@ export function useAuth() {
 	return {
 		user,
 		isAuthenticated: !!user,
-		isLoading: isAuthLoading || isLogoutPending || isLoginPending,
+		isLoading: isAuthLoading || isAuthFetching || isLogoutPending || isLoginPending,
 		onLogin,
 		onLogout,
 		error
