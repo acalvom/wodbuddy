@@ -8,7 +8,7 @@ export const Header = () => {
 	const { isAuthenticated, user, onLogout } = useAuth();
 
 	return (
-		<header className="flex items-center justify-between bg-slate-100 px-6 py-4 shadow-md">
+		<header className="flex items-center justify-between bg-sidebar px-6 py-4 shadow-md">
 			<Link to="/" className="flex items-center space-x-2">
 				<img src={logo} alt="Logo" className="h-8 w-8 cursor-pointer" />
 			</Link>
@@ -18,12 +18,12 @@ export const Header = () => {
 					<span className="text-sm">{user?.email}</span>
 
 					<Button
-						className=" bg-slate-200  cursor-pointer text-sm text-primary font-normal hover:bg-slate-300 transition"
+						className=" bg-sidebar-primary cursor-pointer text-sm text-sidebar-primary-foreground  hover:bg-sidebar-accent transition"
 						variant="ghost"
 						size="sm"
 						onClick={onLogout}
 					>
-						<LogOut strokeWidth={1.5} /> Log Out
+						<LogOut strokeWidth={2} /> Log Out
 					</Button>
 				</div>
 			)}
