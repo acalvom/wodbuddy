@@ -26,7 +26,7 @@ export class SupabaseAuthRepository implements AuthRepository {
 		if (error) throw new Error(error.message);
 	}
 
-	async getCurrentUser(): Promise<AuthUser | null> {
+	async getAuthUser(): Promise<AuthUser | null> {
 		const { data } = await this.supabase.auth.getUser();
 		return userResponseToAuthUserMapper(data);
 	}
