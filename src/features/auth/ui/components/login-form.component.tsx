@@ -1,8 +1,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Link, useNavigate } from 'react-router';
+import { Link } from 'react-router';
 import { z } from 'zod';
-import { useLogin } from '../controllers/use-login.hook';
+import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook.tsx';
 
 const loginSchema = z.object({
 	email: z.email('Email inválido'),
@@ -12,9 +12,7 @@ const loginSchema = z.object({
 type LoginInputs = z.infer<typeof loginSchema>;
 
 export function LoginForm() {
-	const navigate = useNavigate();
-	const { mutateAsync: login, isPending, error } = useLogin();
-
+	const { onLogin, isLoading, error } = useAuth();
 	const {
 		register,
 		handleSubmit,
@@ -23,10 +21,7 @@ export function LoginForm() {
 		resolver: zodResolver(loginSchema)
 	});
 
-	const onSubmit = async (data: LoginInputs) => {
-		await login(data);
-		navigate('/home');
-	};
+	const onSubmit = async (data: LoginInputs) => await onLogin(data);
 
 	return (
 		<div className="flex min-h-screen items-center justify-center bg-gray-50">
@@ -60,15 +55,15 @@ export function LoginForm() {
 				{/* Submit */}
 				<button
 					type="submit"
-					disabled={isPending}
+					disabled={isLoading}
 					className="w-full rounded-lg bg-blue-600 py-2.5 text-white font-semibold hover:bg-blue-700 disabled:opacity-50"
 				>
-					{isPending ? 'Cargando...' : 'Entrar'}
+					{isLoading ? 'Cargando...' : 'Entrar'}
 				</button>
 
 				{/* Link a signup */}
 				<p className="mt-4 text-center text-sm text-gray-600">
-					¿No tienes cuenta?{' '}
+					¿No tienes cuenta?
 					<Link to="/signup" className="font-semibold text-blue-600 hover:underline">
 						Regístrate
 					</Link>
