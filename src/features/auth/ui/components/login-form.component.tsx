@@ -24,53 +24,56 @@ export function LoginForm() {
 	const onSubmit = async (data: LoginInputs) => await onLogin(data);
 
 	return (
-		<div className="flex min-h-screen items-center justify-center bg-gray-50">
-			<form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md space-y-6 rounded-2xl bg-white p-8 shadow-lg">
-				<h1 className="text-2xl font-bold text-gray-800">Iniciar sesión</h1>
+		<div className="flex min-h-screen items-center justify-center bg-accent">
+			<form
+				onSubmit={handleSubmit(onSubmit)}
+				className="w-full max-w-md space-y-6 rounded-2xl bg-background p-8 shadow-lg"
+			>
+				<h1 className="text-2xl font-bold text-primary">Iniciar sesión</h1>
 
 				{/* Email */}
 				<div>
-					<label className="block text-sm font-medium text-gray-700">Email</label>
+					<label className="block text-sm font-medium text-primary">Email</label>
 					<input
 						type="email"
 						placeholder="tu@email.com"
 						{...register('email')}
-						className="mt-1 block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+						className="mt-1 block w-full rounded-lg border border-border p-2.5 text-foreground shadow-sm focus:boring-ring focus:ring-ring"
 					/>
-					{errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
+					{errors.email && <p className="mt-1 text-sm text-destructive">{errors.email.message}</p>}
 				</div>
 
 				{/* Password */}
 				<div>
-					<label className="block text-sm font-medium text-gray-700">Contraseña</label>
+					<label className="block text-sm font-medium text-primary">Contraseña</label>
 					<input
 						type="password"
 						placeholder="••••••"
 						{...register('password')}
-						className="mt-1 block w-full rounded-lg border border-gray-300 p-2.5 text-gray-900 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+						className="mt-1 block w-full rounded-lg border border-border p-2.5 text-foreground shadow-sm focus:boring-ring focus:ring-ring"
 					/>
-					{errors.password && <p className="mt-1 text-sm text-red-500">{errors.password.message}</p>}
+					{errors.password && <p className="mt-1 text-sm text-destructive">{errors.password.message}</p>}
 				</div>
 
 				{/* Submit */}
 				<button
 					type="submit"
 					disabled={isLoading}
-					className="w-full rounded-lg bg-blue-600 py-2.5 text-white font-semibold hover:bg-blue-700 disabled:opacity-50"
+					className="w-full rounded-lg bg-info py-2.5 text-white font-semibold hover:bg-accent-foreground disabled:opacity-50"
 				>
 					{isLoading ? 'Cargando...' : 'Entrar'}
 				</button>
 
 				{/* Link a signup */}
-				<p className="mt-4 text-center text-sm text-gray-600">
-					¿No tienes cuenta?
-					<Link to="/signup" className="font-semibold text-blue-600 hover:underline">
+				<p className="mt-4 text-center text-sm text-primary">
+					¿No tienes cuenta?{' '}
+					<Link to="/signup" className="font-semibold text-info hover:underline">
 						Regístrate
 					</Link>
 				</p>
 
 				{/* Error global */}
-				{error && <p className="mt-2 text-sm text-red-500">{(error as Error).message}</p>}
+				{error && <p className="mt-2 text-sm text-destructive">{(error as Error).message}</p>}
 			</form>
 		</div>
 	);
