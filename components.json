@@ -12,11 +12,11 @@
 	},
 	"iconLibrary": "lucide",
 	"aliases": {
-		"components": "@/common/ui/components",
-		"utils": "@/common/ui/lib/utils",
-		"ui": "@/common/ui/components/ui",
-		"lib": "@/common/ui/lib",
-		"hooks": "@/common/ui/hooks"
+		"components": "@/common/ui/shade-ui/components",
+		"utils": "@/common/ui/shade-ui/components/lib/utils",
+		"ui": "@/common/ui/shade-ui/components/ui/",
+		"lib": "@/common/ui/shade-ui/components/lib",
+		"hooks": "@/common/ui/shade-ui/components/hooks"
 	},
 	"registries": {}
 }
