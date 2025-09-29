@@ -25,7 +25,7 @@ export class Movement implements MovementPrimitives {
 		});
 	}
 
-	private getPercentageOfRM(percentage: number): number | undefined {
+	getPercentageOfRM(percentage: number): number | undefined {
 		if (!this.rm) return undefined;
 		return Math.round((this.rm * percentage) / 100);
 	}
