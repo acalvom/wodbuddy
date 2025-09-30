@@ -13,7 +13,6 @@ export class SupabaseMovementsRepository implements MovementRepository {
 	async getAll(): Promise<Movement[]> {
 		const { data, error } = await this.supabase.from('movements').select('*');
 
-		console.log('data movements:', this.supabase, error, data);
 		if (error) throw new Error(error.message);
 
 		return supabaseToMovements(data);
