@@ -12,7 +12,16 @@ export class MovementMother {
 			id: movement?.id ?? faker.number.int({ min: 1, max: 1000 }),
 			name: movement?.name ?? faker.lorem.words({ min: 1, max: 3 }),
 			userId: movement?.userId ?? faker.string.uuid(),
-			rm: movement?.rm ?? undefined
+			rm: movement?.rm ?? faker.number.float({ min: 0, max: 100, fractionDigits: 1 })
+		});
+	}
+
+	static withoutRm(): Movement {
+		return Movement.fromPrimitives({
+			id: faker.number.int({ min: 1, max: 1000 }),
+			name: faker.lorem.words({ min: 1, max: 3 }),
+			userId: faker.string.uuid(),
+			rm: undefined
 		});
 	}
 

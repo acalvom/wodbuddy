@@ -22,7 +22,7 @@ describe('Movement Entity', () => {
 	});
 
 	it('should return undefined for percentage of RM if RM is not set', () => {
-		const movement = MovementMother.one({ rm: undefined });
+		const movement = MovementMother.withoutRm();
 		expect(movement.getPercentageOfRM(50)).toBeUndefined();
 	});
 
