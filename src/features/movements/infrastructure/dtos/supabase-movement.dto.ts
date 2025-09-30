@@ -3,5 +3,5 @@ export interface SupabaseMovementDto {
 	name: string;
 	rm: number | null;
 	creation_date: string | null;
-	userId: string;
+	user_id: string;
 }
