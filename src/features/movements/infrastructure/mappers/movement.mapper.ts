@@ -1,5 +1,5 @@
 import { Movement } from '@/features/movements/domain/entities/movement.ts';
-import type { MovementPrimitives } from '@/features/movements/domain/primitives/movement.primitives.ts';
+import type { MovementPrimitives } from '@/features/movements/domain/entities/movement.primitives.ts';
 import type { SupabaseMovementDto } from '@/features/movements/infrastructure/dtos/supabase-movement.dto.ts';
 
 export const supabaseToMovement = (supabase: SupabaseMovementDto): Movement => {

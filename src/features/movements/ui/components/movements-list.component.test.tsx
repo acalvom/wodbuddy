@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
-import { MovementMother } from '@/features/movements/domain/test/movement.mother.ts';
+import { MovementMother } from '@/features/movements/domain/mothers/movement.mother.ts';
 import { MovementsList } from '@/features/movements/ui/components/movements-list.component';
 import { MovementsListComponentTO } from '@/features/movements/ui/components/movements-list.component.to.ts';
 
