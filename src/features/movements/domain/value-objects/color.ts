@@ -14,4 +14,5 @@ export class Color {
 	static White = new Color('#FFFFFF', 'White');
 	static Black = new Color('#000000', 'Black');
 	static Silver = new Color('#C0C0C0', 'Silver');
+	static Grey = new Color('#808080', 'Grey');
 }
