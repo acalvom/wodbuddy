@@ -1,4 +1,4 @@
-import type { MovementPrimitives } from '@/features/movements/domain/interfaces/movement.ts';
+import type { MovementPrimitives } from '@/features/movements/domain/primitives/movement.primitives.ts';
 
 export class Movement implements MovementPrimitives {
 	id: number;

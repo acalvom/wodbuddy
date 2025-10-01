@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { Movement } from '@/features/movements/domain/entities/movement.ts';
-import type { MovementPrimitives } from '@/features/movements/domain/interfaces/movement.ts';
+import type { MovementPrimitives } from '@/features/movements/domain/primitives/movement.primitives.ts';
 
 export class MovementMother {
 	static empty(): Movement[] {
