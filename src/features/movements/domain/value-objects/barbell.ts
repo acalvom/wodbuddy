@@ -5,7 +5,7 @@ export class Barbell {
 	public readonly type: BarbellType;
 	private discs: Disc[] = [];
 
-	constructor(type: BarbellType, discs: Disc[]) {
+	constructor(type: BarbellType, discs: Disc[] = []) {
 		this.type = type;
 		this.discs = discs;
 
@@ -33,13 +33,13 @@ export class Barbell {
 		return this.discs;
 	}
 
-	configure(targetWeight: number): void {
+	configure(targetWeight: number): Disc[] {
 		if (targetWeight < 0) throw new Error('Target weight must be a positive number');
 
 		const weightToLoad = targetWeight - this.weight;
 		this.discs = [];
 
-		if (weightToLoad <= 0) return; // No need to add discs if target weight is less than or equal to bar weight
+		if (weightToLoad <= 0) return []; // No need to add discs if target weight is less than or equal to bar weight
 
 		const availableDiscs = Disc.standardDiscs().sort((a, b) => b.value - a.value);
 		let remainingWeight = weightToLoad / 2;
@@ -50,7 +50,6 @@ export class Barbell {
 				remainingWeight -= disc.value;
 			}
 		}
-
-		if (remainingWeight > 0) throw new Error('Target weight not exactly achievable with available discs');
+		return this.discs;
 	}
 }

@@ -18,9 +18,9 @@ export class Disc {
 	static readonly FIFTEEN = Disc.fromPrimitive(15, Color.Yellow);
 	static readonly TEN = Disc.fromPrimitive(10, Color.Green);
 	static readonly FIVE = Disc.fromPrimitive(5, Color.White);
-	static readonly TWO_POINT_FIVE = Disc.fromPrimitive(2.5, Color.Black);
+	static readonly TWO_POINT_FIVE = Disc.fromPrimitive(2.5, Color.Red);
 	static readonly ONE_POINT_TWO_FIVE = Disc.fromPrimitive(1.25, Color.Silver);
-	static readonly ZERO_POINT_FIVE = Disc.fromPrimitive(0.5, Color.Grey);
+	static readonly ZERO_POINT_FIVE = Disc.fromPrimitive(0.5, Color.Gray);
 
 	static standardDiscs(): Disc[] {
 		return [

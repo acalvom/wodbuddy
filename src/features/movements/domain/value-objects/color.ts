@@ -7,12 +7,12 @@ export class Color {
 		this.name = name;
 	}
 
-	static Red = new Color('#FF0000', 'Red');
-	static Blue = new Color('#0000FF', 'Blue');
-	static Yellow = new Color('#FFFF00', 'Yellow');
-	static Green = new Color('#008000', 'Green');
-	static White = new Color('#FFFFFF', 'White');
-	static Black = new Color('#000000', 'Black');
-	static Silver = new Color('#C0C0C0', 'Silver');
-	static Grey = new Color('#808080', 'Grey');
+	static Red = new Color('red', 'Red');
+	static Blue = new Color('blue', 'Blue');
+	static Yellow = new Color('yellow', 'Yellow');
+	static Green = new Color('green', 'Green');
+	static White = new Color('white', 'White');
+	static Black = new Color('black', 'Black');
+	static Silver = new Color('silver', 'Silver');
+	static Gray = new Color('gray', 'Gray');
 }
