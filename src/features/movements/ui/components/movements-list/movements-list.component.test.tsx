@@ -1,12 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { MovementMother } from '@/features/movements/domain/mothers/movement.mother.ts';
-import { MovementsList } from '@/features/movements/ui/components/movements-list.component';
-import { MovementsListComponentTO } from '@/features/movements/ui/components/movements-list.component.to.ts';
+import { MovementsListComponentTO } from '@/features/movements/ui/components/movements-list/movements-list.component.to.ts';
+import { MovementsList } from '@/features/movements/ui/components/movements-list/movements-list.component.tsx';
 
 vi.mock('@/features/movements/ui/controllers/use-get-movements.hook');
 
-import { useGetMovements } from '@/features/movements/ui/controllers/use-get-movements.hook';
+import { useGetMovements } from '@/features/movements/ui/controllers/use-get-movements.hook.ts';
 
 const mockUseGetMovements = vi.mocked(useGetMovements);
 
