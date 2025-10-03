@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import { Button } from '@/common/ui/shade-ui/components/ui/button.tsx';
 import {
 	Form,

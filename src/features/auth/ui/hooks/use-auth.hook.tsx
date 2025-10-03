@@ -1,6 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { AUTH_USER_KEY } from '@/common/ui/react-query/query-keys/query-keys.ts';
 import type { AuthUserRequest } from '@/features/auth/domain/interfaces/auth-user-request.ts';
 import { useGetAuthUser } from '@/features/auth/ui/controllers/use-get-auth-user.hook.ts';
@@ -24,7 +24,7 @@ export function useAuth() {
 
 	const onLogin = async (loginRequest: AuthUserRequest) => {
 		await login(loginRequest);
-		navigate('/home');
+		navigate('/');
 	};
 
 	useEffect(() => {

@@ -1,5 +1,5 @@
 import { LogOut } from 'lucide-react';
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 import logo from '@/assets/images/logo.png';
 import { Button } from '@/common/ui/shade-ui/components/ui/button.tsx';
 import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook.tsx';
