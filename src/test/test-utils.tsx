@@ -12,11 +12,11 @@ const createTestQueryClient = (config?: QueryClientConfig) => {
 };
 
 /**
- * Para testear componentes aislados (sin router).
- * Ejemplo:
- *   customComponentRender(<MovementsList />)
+ * Renders a component in isolation with only QueryClient provider (no routing).
+ * Use for components that don't need navigation (buttons, loading, pure UI components).
+ * Example: renderComponent(<Button />)
  */
-export function customComponentRender(
+export function renderComponent(
 	ui: ReactElement,
 	{ queryClientConfig, ...options }: RenderOptions & { queryClientConfig?: QueryClientConfig } = {}
 ) {
@@ -28,11 +28,11 @@ export function customComponentRender(
 }
 
 /**
- * Para testear con navegación real usando las rutas de la app.
- * Ejemplo:
- *   customRouterRender('/movements/123')
+ * Renders the full app with real routing using appRoutes.
+ * Use for integration tests that need navigation and real route matching.
+ * Example: renderAppWithRoutes('/movements/123')
  */
-export function customRouterRender(initialEntry: string = '/', queryClientConfig?: QueryClientConfig) {
+export function renderAppWithRoutes(initialEntry: string = '/', queryClientConfig?: QueryClientConfig) {
 	const client = createTestQueryClient(queryClientConfig);
 	const router = createMemoryRouter(appRoutes, { initialEntries: [initialEntry] });
 
@@ -43,7 +43,12 @@ export function customRouterRender(initialEntry: string = '/', queryClientConfig
 	);
 }
 
-export function customRender(ui: ReactElement, initialEntry: string = '/') {
+/**
+ * Renders a component with basic routing context (no real routes).
+ * Use when you need routing context but don't need the full app routes.
+ * Example: renderWithRouting(<HomePage />, '/home')
+ */
+export function renderWithRouting(ui: ReactElement, initialEntry: string = '/') {
 	const client = createTestQueryClient();
 
 	return render(
@@ -57,34 +62,6 @@ export function customRender(ui: ReactElement, initialEntry: string = '/') {
 	);
 }
 
-/*
-
-const customRender = (ui: ReactElement, options?: RenderOptions) => {
-	const client = createTestQueryClient();
-	return render(ui, {
-		wrapper: ({ children }) => (
-			<MemoryRouter initialEntries={['/']}>
-				<QueryClientProvider client={client}>{children}</QueryClientProvider>
-			</MemoryRouter>
-		),
-		...options
-	});
-};
-const createTestQueryClient = (config?: QueryClientConfig) => {
-	return new QueryClient({
-		defaultOptions: { queries: { retry: false, gcTime: 1 } },
-		...config
-	});
-};
-
-const renderWithQueryClient = (ui: ReactElement, client = createTestQueryClient(), options?: RenderOptions) => {
-	return render(ui, {
-		wrapper: ({ children }) => <QueryClientProvider client={client}>{children}</QueryClientProvider>,
-		...options
-	});
-};
-
+// Re-export all testing-library functions for convenience
 export * from '@testing-library/react';
-
-export { customRender as render, renderWithQueryClient };
-*/
+export { userEvent } from '@testing-library/user-event';
