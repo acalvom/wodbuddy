@@ -17,6 +17,7 @@
 			},
 			"a11y": {
 				"noAutofocus": "off",
+				"noStaticElementInteractions": "off",
 				"useKeyWithClickEvents": "off",
 				"noLabelWithoutControl": "off"
 			},
