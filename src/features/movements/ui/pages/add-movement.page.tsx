@@ -11,9 +11,15 @@ import {
 	FormMessage
 } from '@/common/ui/shade-ui/components/ui/form.tsx';
 import { Input } from '@/common/ui/shade-ui/components/ui/input.tsx';
+import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook.tsx';
+import { useAddNewMovement } from '@/features/movements/ui/controllers/use-add-new-movement.hook.ts';
+import { zodToDomain } from '@/features/movements/ui/mappers/zod-to-domain.mapper.ts';
 import { type ZodNewMovement, ZodNewMovementSchema } from '@/features/movements/ui/models/zod-new-movement.ts';
 
 export const AddMovementPage = () => {
+	const { user } = useAuth();
+	const { mutateAsync: createMovement, isPending } = useAddNewMovement();
+
 	const form = useForm<ZodNewMovement>({
 		resolver: zodResolver(ZodNewMovementSchema),
 		defaultValues: {
@@ -23,14 +29,11 @@ export const AddMovementPage = () => {
 	});
 
 	const onSubmit = async (data: ZodNewMovement) => {
-		const processedData = {
-			...data,
-			rm: parseFloat(data.rm),
-			userId: '1'
-		};
+		if (!user?.id) return;
+		const newMovement = zodToDomain(data, user.id);
 
-		console.log('Datos válidos:', processedData);
-		// Aquí irían las llamadas a la API
+		console.log('Datos válidos:', newMovement);
+		return await createMovement(newMovement);
 	};
 
 	return (
@@ -83,6 +86,7 @@ export const AddMovementPage = () => {
 
 						<Button
 							type="submit"
+							disabled={isPending}
 							className="glow w-full py-4 px-6 text-base font-semibold mt-8 
 							h-12 rounded-xl touch-manipulation active:scale-95 transition-transform"
 						>

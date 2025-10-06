@@ -5,12 +5,12 @@ import { MovementsList } from '@/features/movements/ui/components/movements-list
 export const MovementsPage = () => {
 	const navigate = useNavigate();
 	return (
-		<div className="flex flex-col items-center">
+		<div className="flex flex-col items-center gap-4">
 			<Button
 				type="button"
 				variant="outline"
 				onClick={() => navigate('/add-movement')}
-				className="border-primary cursor-pointer mt-4 mb-8 w-full max-w-xs"
+				className="border-primary cursor-pointer my-4 w-full max-w-xs"
 			>
 				Añadir movimiento
 			</Button>
