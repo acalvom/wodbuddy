@@ -5,7 +5,7 @@ type TitleProps = {
 };
 
 export const Title = ({ className, children }: PropsWithChildren<TitleProps>) => {
-	const titleClassName = `text-3xl text-shadow-lg font-bold uppercase text-destructive mb-4 ${className || ''}`;
+	const titleClassName = `text-xl font-bold uppercase text-primary mb-3 text-high-contrast ${className || ''}`;
 
 	return <h2 className={titleClassName}>{children}</h2>;
 };

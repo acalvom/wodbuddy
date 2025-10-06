@@ -5,7 +5,7 @@ type SubtitleProps = {
 };
 
 export const Subtitle = ({ className, children }: PropsWithChildren<SubtitleProps>) => {
-	const subtitleClassName = `text-lg font-semibold text-info mb-4 ${className || ''}`;
+	const subtitleClassName = `text-base font-semibold text-secondary mb-3 ${className || ''}`;
 
 	return <h3 className={subtitleClassName}>{children}</h3>;
 };

@@ -8,11 +8,7 @@ export const MovementsList = () => {
 	if (isPending) return <Loading />;
 	if (isError) return <div>Error loading movements</div>;
 
-	return (
-		<div>
-			{movements && movements.length > 0
-				? movements.map((movement) => <MovementCard key={movement.id} movement={movement} />)
-				: 'No movements to show'}
-		</div>
-	);
+	return movements && movements.length > 0
+		? movements.map((movement) => <MovementCard key={movement.id} movement={movement} />)
+		: 'No movements to show';
 };

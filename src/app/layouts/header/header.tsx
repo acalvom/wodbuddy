@@ -8,22 +8,23 @@ export const Header = () => {
 	const { isAuthenticated, user, onLogout } = useAuth();
 
 	return (
-		<header className="flex items-center justify-between bg-sidebar px-6 py-4 shadow-md">
-			<Link to="/" className="flex items-center space-x-2">
-				<img src={logo} alt="Logo" className="h-8 w-8 cursor-pointer" />
+		<header className="glass flex items-center justify-between px-4 py-3 shadow-lg border-b border-border/30 backdrop-blur-md">
+			<Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity touch-manipulation">
+				<img src={logo} alt="Logo" className="h-7 w-7 cursor-pointer drop-shadow-lg" />
 			</Link>
 
 			{isAuthenticated && (
-				<div className="flex items-center space-x-4 text-primary">
-					<span className="text-sm">{user?.email}</span>
+				<div className="flex items-center space-x-3">
+					<span className="text-xs text-foreground/90 font-medium truncate max-w-[120px]">{user?.email}</span>
 
 					<Button
-						className=" bg-sidebar-primary cursor-pointer text-sm text-sidebar-primary-foreground  hover:bg-sidebar-accent transition"
+						className="glow text-xs font-medium px-3 py-2 transition-all duration-200 h-8 active:scale-95"
 						variant="ghost"
 						size="sm"
 						onClick={onLogout}
 					>
-						<LogOut strokeWidth={2} /> Log Out
+						<LogOut strokeWidth={2} className="mr-1 h-3 w-3" />
+						Salir
 					</Button>
 				</div>
 			)}
