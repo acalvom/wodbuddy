@@ -1,9 +1,8 @@
-import { screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { MovementMother } from '@/features/movements/domain/mothers/movement.mother';
 import { MovementsListComponentTO } from '@/features/movements/ui/components/movements-list/movements-list.component.to';
 import { MovementsList } from '@/features/movements/ui/components/movements-list/movements-list.component';
-import { renderWithRouting } from '@/test/test-utils';
+import { renderWithRouting, screen } from '@/test/test-utils';
 
 vi.mock('@/features/movements/ui/controllers/use-get-movements.hook');
 
