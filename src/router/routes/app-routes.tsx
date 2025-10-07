@@ -1,8 +1,8 @@
 import { AppLayout } from '@/app/layouts/app.layout';
 import { LoginPage } from '@/features/auth/ui/pages/login.page';
 import { SignupPage } from '@/features/auth/ui/pages/signup.page';
-import { AddMovementPage } from '@/features/movements/ui/pages/add-movement.page.tsx';
-import { MovementsPage } from '@/features/movements/ui/pages/movements.page.tsx';
+import { AddMovementPage } from '@/features/movements/ui/pages/add-movement/add-movement.page.tsx';
+import { MovementsPage } from '@/features/movements/ui/pages/movements/movements.page.tsx';
 import { RequireAuth } from '@/router/routes/require-auth';
 
 export const appRoutes = [
