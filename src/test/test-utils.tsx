@@ -63,5 +63,5 @@ export function renderWithRouting(ui: ReactElement, initialEntry: string = '/') 
 }
 
 // Re-export all testing-library functions for convenience
-export * from '@testing-library/react';
+export { screen, waitFor } from '@testing-library/react';
 export { userEvent } from '@testing-library/user-event';
