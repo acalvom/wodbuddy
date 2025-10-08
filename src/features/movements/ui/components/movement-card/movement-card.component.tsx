@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { Card } from '@/common/ui/custom-components/card/card.tsx';
 import { CardContent } from '@/common/ui/custom-components/card/card-content.tsx';
+import { CardFooter } from '@/common/ui/custom-components/card/card-footer.tsx';
 import { CardHeader } from '@/common/ui/custom-components/card/card-header.tsx';
 import { Subtitle } from '@/common/ui/custom-components/subtitle/subtitle.tsx';
 import { Title } from '@/common/ui/custom-components/title/title.tsx';
@@ -35,10 +36,11 @@ export const MovementCard = ({ movement }: { movement: Movement }) => {
 				</div>
 			</CardContent>
 
-			{/*TODO: move to a new Card Footer*/}
-			<Button type="button" variant="secondary" className="w-full mt-2" onClick={onClick}>
-				Ver detalle
-			</Button>
+			<CardFooter>
+				<Button type="button" variant="secondary" className="cursor-pointer" onClick={onClick}>
+					Ver detalle
+				</Button>
+			</CardFooter>
 		</Card>
 	);
 };
