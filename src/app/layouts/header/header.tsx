@@ -1,6 +1,6 @@
 import { LogOut } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logo from '@/assets/images/colored-icon.svg';
+import logo from '@/assets/images/w-bar-logo.svg';
 import { useScroll } from '@/common/ui/hooks/use-scroll.hook';
 import { Button } from '@/common/ui/shade-ui/components/ui/button.tsx';
 import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook.tsx';
@@ -13,8 +13,18 @@ export const Header = () => {
 		<header
 			className={`sticky top-0 z-50 w-full glass-header flex items-center justify-between px-4 py-3 shadow-lg border-b border-border/30 backdrop-blur-md ${isScrolled ? 'scrolled' : ''}`}
 		>
-			<Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity touch-manipulation">
-				<img src={logo} alt="Logo" className="h-7 w-7 cursor-pointer drop-shadow-lg" />
+			<Link
+				to="/"
+				className="flex items-center space-x-3 hover:scale-105 transition-all duration-300 touch-manipulation group"
+			>
+				<img
+					src={logo}
+					alt="Logo"
+					className="h-7 w-7 cursor-pointer drop-shadow-lg group-hover:drop-shadow-xl transition-all duration-300"
+				/>
+				<span className="hidden md:block text-xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent tracking-tight drop-shadow-sm hover:drop-shadow-md transition-all duration-300 animate-pulse-slow">
+					wodbuddy
+				</span>
 			</Link>
 
 			{isAuthenticated && (
