@@ -1,5 +1,6 @@
 import { userEvent } from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { UseAuthHookInteractor, UseAuthHookTO } from '@/features/auth/ui/hooks/use-auth-hook-to.ts';
 import {
 	AddMovementPageInteractor,
 	AddMovementPageTO
@@ -18,7 +19,7 @@ const mockUseAuth = vi.mocked(useAuth);
 describe('AddMovementPage', () => {
 	beforeEach(() => {
 		vi.clearAllMocks();
-		mockUseAuth.mockReturnValue(AddMovementPageTO.loggedIn());
+		mockUseAuth.mockReturnValue(UseAuthHookTO.loggedIn());
 		mockUseAddNewMovement.mockReturnValue(AddMovementPageTO.custom({}));
 	});
 
@@ -151,19 +152,12 @@ describe('AddMovementPage', () => {
 		await waitFor(() => {
 			expect(mockMutateAsync).toHaveBeenCalledTimes(1);
 		});
-
 		await expect(mockMutateAsync()).rejects.toThrow('Network error');
 	});
 
 	it('should not submit when user is not authenticated', async () => {
-		mockUseAuth.mockReturnValue(AddMovementPageTO.loggedOut());
-
+		mockUseAuth.mockReturnValue(UseAuthHookTO.loggedOut());
 		renderAppWithRoutes('/add-movement');
-
-		expect(screen.getByText('Iniciar sesión')).toBeInTheDocument();
-		expect(screen.getByText('Email')).toBeInTheDocument();
-		expect(screen.getByText('Password')).toBeInTheDocument();
-		expect(screen.getByRole('button', { name: 'Entrar' })).toBeInTheDocument();
-		expect(screen.getByText('Regístrate')).toBeInTheDocument();
+		UseAuthHookInteractor.expectLoginFormInDocument();
 	});
 });
