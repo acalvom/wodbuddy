@@ -16,13 +16,7 @@ export class Movement implements MovementPrimitives {
 	}
 
 	static fromPrimitives(value: MovementPrimitives): Movement {
-		return new Movement({
-			id: value.id,
-			name: value.name,
-			image: value.image,
-			rm: value.rm,
-			userId: value.userId
-		});
+		return new Movement(value);
 	}
 
 	public getPercentageOfRM(percentage: number): number | undefined {
@@ -34,6 +28,6 @@ export class Movement implements MovementPrimitives {
 	public formatPercentageOfRM(percentage: number): string {
 		const value = this.getPercentageOfRM(percentage);
 		if (!value) return '-';
-		return `${value} kg (${percentage}%)`;
+		return `${value} kg`;
 	}
 }
