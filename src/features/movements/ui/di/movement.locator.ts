@@ -1,5 +1,6 @@
 import { supabase } from '@/common/infrastructure/supabase-client.ts';
 import { AddNewMovementCommand } from '@/features/movements/application/commands/add-new-movement.command.ts';
+import { GetMovementByIdQuery } from '@/features/movements/application/queries/get-movement-by-id.query.ts';
 import { GetMovementsQuery } from '@/features/movements/application/queries/get-movements.query.ts';
 import { SupabaseMovementsRepository } from '@/features/movements/infrastructure/supabase-movements.repository.ts';
 
@@ -9,6 +10,10 @@ export class MovementLocator {
 
 	static getMovements() {
 		return new GetMovementsQuery(MovementLocator.movementsRepository);
+	}
+
+	static getMovementById() {
+		return new GetMovementByIdQuery(MovementLocator.movementsRepository);
 	}
 
 	static addNewMovement() {
