@@ -1,3 +1,30 @@
+# WodBuddy
+
+WodBuddy es una aplicación para trackear marcas y movimientos de CrossFit. Te permite registrar tus entrenamientos, seguir tus records personales (PR) y calcular porcentajes de tu RM (Repetición Máxima).
+
+## Características
+
+- 🏋️‍♂️ Seguimiento de movimientos de CrossFit
+- 📊 Registro de marcas personales (PR)
+- 🧮 Calculadora de porcentajes de RM
+- 👤 Sistema de autenticación
+- 📱 Interfaz responsive
+
+## Tecnologías
+
+- React + TypeScript + Vite
+- Supabase (Base de datos y autenticación)
+- TailwindCSS + Radix UI
+- React Query para manejo de estado
+- React Router para navegación
+
+## Desarrollo
+
+```bash
+npm install
+npm run dev
+```
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
