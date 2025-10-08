@@ -138,7 +138,9 @@ describe('AddMovementPage', () => {
 
 		await AddMovementPageInteractor.fillValidForm();
 
-		expect(screen.getByRole('status')).toHaveTextContent('Network error');
+		await waitFor(() => {
+			expect(screen.getByRole('alert')).toHaveTextContent('Network error');
+		});
 	});
 
 	it('should handle mutateAsync rejects', async () => {

@@ -38,7 +38,7 @@ export const Toast = ({ type, title, description, open }: ToastProps) => {
 		if (open) {
 			toast.custom(
 				(t) => (
-					<div className={`flex items-start gap-3 rounded shadow-lg px-4 py-3 ${typeConfig[type].className}`}>
+					<div role="alert" className={`flex items-start gap-3 rounded shadow-lg px-4 py-3 ${typeConfig[type].className}`}>
 						<div className="pt-1">{typeConfig[type].icon}</div>
 						<div>
 							<div className="text-sm font-bold">{title}</div>
