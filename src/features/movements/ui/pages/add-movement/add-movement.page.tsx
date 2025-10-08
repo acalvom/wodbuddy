@@ -1,5 +1,5 @@
 import { Title } from '@/common/ui/custom-components/title/title.tsx';
-import { ErrorToast } from '@/common/ui/custom-components/toast/error-toast.tsx';
+import { Toast } from '@/common/ui/custom-components/toast/toast.tsx';
 import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook.tsx';
 import { AddMovementForm } from '@/features/movements/ui/components/add-movement-form/add-movement-form.component.tsx';
 import { useAddNewMovement } from '@/features/movements/ui/controllers/use-add-new-movement.hook.ts';
@@ -23,7 +23,7 @@ export const AddMovementPage = () => {
 			<div className="container mx-auto max-w-sm">
 				<Title className="text-center">Nuevo Movimiento</Title>
 				<AddMovementForm onSubmit={onSubmit} isPending={isPending} />
-				<ErrorToast error={error} />
+				<Toast type="error" title="Error añadiendo movimiento" description={error?.message} open={!!error} />
 			</div>
 		</div>
 	);
