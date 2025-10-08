@@ -16,17 +16,14 @@ import { Title } from '@/common/ui/custom-components/title/title.tsx';
 import { Toast } from '@/common/ui/custom-components/toast/toast.tsx';
 import { cn } from '@/common/ui/shade-ui/components/lib/utils';
 import { Button } from '@/common/ui/shade-ui/components/ui/button.tsx';
-import {
-	Form,
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage
-} from '@/common/ui/shade-ui/components/ui/form.tsx';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/common/ui/shade-ui/components/ui/form.tsx';
 import { Input } from '@/common/ui/shade-ui/components/ui/input.tsx';
 import { useGetMovement } from '@/features/movements/ui/controllers/use-get-movement.hook.ts';
 
+// TODO: generar dominio
+// TODO: Eliminar mocked data e implementar servicios
+// TODO: refactorizar en componentes
+// TODO: modelo de zod y validaciones
 interface Mark {
 	id: number;
 	movementId: number;
@@ -81,7 +78,7 @@ export const ViewMovementPage = () => {
 
 	const form = useForm<PercentageForm>({
 		resolver: zodResolver(PercentageSchema),
-		defaultValues: { percentage: '0' },
+		defaultValues: { percentage: '' },
 		mode: 'onChange'
 	});
 
@@ -108,7 +105,7 @@ export const ViewMovementPage = () => {
 
 			<CardContent>
 				<div className="w-full mb-4">
-					<h3 className="font-semibold text-base mb-2 text-primary">Histórico de marcas</h3>
+					<h3 className="font-semibold text-md mb-2 text-primary">Histórico de marcas</h3>
 					<ul className="space-y-2">
 						{marksByMovement.map((mark) => (
 							<li
