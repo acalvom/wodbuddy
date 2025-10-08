@@ -1,5 +1,14 @@
-import type { ReactNode } from 'react';
+import type { PropsWithChildren } from 'react';
+import { cn } from '@/common/ui/shade-ui/components/lib/utils';
 
-export const CardContent = ({ children }: { children: ReactNode }) => {
-	return <div className="w-full flex flex-row flex-wrap justify-between gap-4 p-4 text-primary text-sm">{children}</div>;
+export interface CardContentProps {
+	className?: string;
+}
+
+export const CardContent = ({ children, className }: PropsWithChildren<CardContentProps>) => {
+	return (
+		<div className={cn('w-full flex flex-row flex-wrap justify-between gap-4 p-4 text-primary text-sm', className)}>
+			{children}
+		</div>
+	);
 };
