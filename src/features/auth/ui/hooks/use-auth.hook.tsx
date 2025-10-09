@@ -24,7 +24,7 @@ export function useAuth() {
 
 	const onLogin = async (loginRequest: AuthUserRequest) => {
 		await login(loginRequest);
-		navigate('/');
+		navigate('/movements');
 	};
 
 	useEffect(() => {

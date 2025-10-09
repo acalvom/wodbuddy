@@ -1,3 +1,4 @@
+import { Navigate } from 'react-router-dom';
 import { AppLayout } from '@/app/layouts/app.layout';
 import { LoginPage } from '@/features/auth/ui/pages/login.page';
 import { SignupPage } from '@/features/auth/ui/pages/signup.page';
@@ -13,12 +14,19 @@ export const appRoutes = [
 		children: [
 			{ path: 'login', element: <LoginPage /> },
 			{ path: 'signup', element: <SignupPage /> },
+			{ index: true, element: <Navigate to="/movements" replace /> },
 			{
 				element: <RequireAuth />,
 				children: [
-					{ index: true, element: <MovementsPage /> },
-					{ path: 'add-movement', element: <AddMovementPage /> },
-					{ path: 'movements/:id', element: <ViewMovementPage /> }
+					{
+						path: 'movements',
+						children: [
+							{ index: true, element: <MovementsPage /> },
+							{ path: 'add', element: <AddMovementPage /> },
+							{ path: ':id', element: <ViewMovementPage /> },
+							{ path: ':id/add', element: <div>Add Mark Page - TODO</div> }
+						]
+					}
 				]
 			},
 			{ path: '*', element: <h2>Not Found</h2> }

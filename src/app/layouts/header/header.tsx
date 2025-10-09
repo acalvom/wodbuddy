@@ -14,7 +14,7 @@ export const Header = () => {
 			className={`sticky top-0 z-50 w-full glass-header flex items-center justify-between px-4 py-3 shadow-lg border-b border-border/30 backdrop-blur-md ${isScrolled ? 'scrolled' : ''}`}
 		>
 			<Link
-				to="/"
+				to="/movements"
 				className="flex items-center space-x-3 hover:scale-105 transition-all duration-300 touch-manipulation group"
 			>
 				<img
