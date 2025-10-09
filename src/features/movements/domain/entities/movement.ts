@@ -1,3 +1,4 @@
+import { Parser } from '@/common/domain/parser/parser';
 import type { MovementPrimitives } from '@/features/movements/domain/entities/movement.primitives.ts';
 
 export class Movement implements MovementPrimitives {
@@ -29,5 +30,15 @@ export class Movement implements MovementPrimitives {
 		const value = this.getPercentageOfRM(percentage);
 		if (!value) return '-';
 		return `${value} kg`;
+	}
+
+	public formatCalculatorPercentageOfRM(percentage: number | string): string {
+		if (typeof percentage === 'string') {
+			percentage = Parser.toInt(percentage) || 0;
+		}
+
+		const value = this.getPercentageOfRM(percentage);
+		if (!value) return `${percentage}% = 0 kg`;
+		return `${percentage}% = ${value} kg`;
 	}
 }
