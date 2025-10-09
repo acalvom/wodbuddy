@@ -18,7 +18,9 @@ type LoginFormProps = {
 	isLoading?: boolean;
 };
 
-export function LoginForm({ onSubmit, isLoading }: LoginFormProps) {
+// TODO: refactorizar en componentes Input, Button...
+
+export const LoginForm = ({ onSubmit, isLoading }: LoginFormProps) => {
 	const form = useForm<ZodLogin>({
 		resolver: zodResolver(ZodLoginSchema),
 		defaultValues: {
@@ -89,4 +91,4 @@ export function LoginForm({ onSubmit, isLoading }: LoginFormProps) {
 			</form>
 		</Form>
 	);
-}
+};
