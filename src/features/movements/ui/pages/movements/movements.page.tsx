@@ -10,7 +10,7 @@ export const MovementsPage = () => {
 				type="button"
 				variant="outline"
 				onClick={() => navigate('/add-movement')}
-				className="border-primary cursor-pointer my-4 w-full max-w-xs"
+				className="border-primary my-4 w-full max-w-xs"
 			>
 				Añadir movimiento
 			</Button>

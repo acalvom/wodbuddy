@@ -37,7 +37,7 @@ export const MovementCard = ({ movement }: { movement: Movement }) => {
 			</CardContent>
 
 			<CardFooter>
-				<Button type="button" variant="secondary" className="cursor-pointer" onClick={onClick}>
+				<Button type="button" variant="secondary" onClick={onClick}>
 					Ver detalle
 				</Button>
 			</CardFooter>

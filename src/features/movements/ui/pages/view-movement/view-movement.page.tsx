@@ -140,7 +140,7 @@ export const ViewMovementPage = () => {
 										</FormItem>
 									)}
 								/>
-								<Button type="submit" className="glow cursor-pointer" variant="ghost">
+								<Button type="submit" className="glow" variant="ghost">
 									<Calculator />
 								</Button>
 							</div>
