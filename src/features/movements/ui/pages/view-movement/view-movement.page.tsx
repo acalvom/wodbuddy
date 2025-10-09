@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Parser } from '@/common/domain/parser/parser.ts';
 import { Card } from '@/common/ui/custom-components/card/card.tsx';
 import { CardContent } from '@/common/ui/custom-components/card/card-content.tsx';
@@ -48,6 +48,7 @@ const movementMarks: Mark[] = [
 export const ViewMovementPage = () => {
 	const { id } = useParams();
 	const movementId = Parser.toInt(id!);
+	const navigate = useNavigate();
 
 	const { data: movement, isLoading, isError } = useGetMovement(movementId!);
 	const pr = movementMarks.find((mark) => mark.isPr);
@@ -68,11 +69,9 @@ export const ViewMovementPage = () => {
 			</CardContent>
 
 			<CardFooter>
-				<div className="flex justify-end border-t border-neutral-200 pt-4 w-full">
-					<Button type="button" variant="secondary" className="rounded-xl">
-						Volver
-					</Button>
-				</div>
+				<Button type="button" variant="secondary" className="rounded-xl" onClick={() => navigate('/')}>
+					Volver
+				</Button>
 			</CardFooter>
 		</Card>
 	);
