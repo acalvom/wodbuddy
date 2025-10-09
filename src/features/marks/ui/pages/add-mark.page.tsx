@@ -1,6 +1,7 @@
 import { Title } from '@/common/ui/custom-components/title/title';
 import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook';
-import { AddMarkForm, type ZodAddMark } from '../components/add-mark-form/add-mark-form.component';
+import { AddMarkForm } from '../components/add-mark-form/add-mark-form.component';
+import type { ZodAddMark } from '../models/zod-mark';
 
 export const AddMarkPage = () => {
 	const { user } = useAuth();

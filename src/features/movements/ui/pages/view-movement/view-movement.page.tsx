@@ -58,21 +58,31 @@ export const ViewMovementPage = () => {
 	if (!movement || !pr) return <div>Movimiento no encontrado</div>;
 
 	return (
-		<Card>
-			<CardHeader className="pb-4">
-				<HeaderSection movement={movement} pr={pr} />
-			</CardHeader>
+		<>
+			<Button
+				type="button"
+				variant="outline"
+				onClick={() => navigate(`/movements/${movementId}/marks/add`)}
+				className="border-primary my-4 w-full max-w-xs mx-auto"
+			>
+				Añadir RM
+			</Button>
+			<Card>
+				<CardHeader className="pb-4">
+					<HeaderSection movement={movement} pr={pr} />
+				</CardHeader>
 
-			<CardContent>
-				<MarkHistorySection marks={movementMarks} />
-				<PercentageCalculatorSection movement={movement} />
-			</CardContent>
+				<CardContent>
+					<MarkHistorySection marks={movementMarks} />
+					<PercentageCalculatorSection movement={movement} />
+				</CardContent>
 
-			<CardFooter>
-				<Button type="button" variant="secondary" className="rounded-xl" onClick={() => navigate('/')}>
-					Volver
-				</Button>
-			</CardFooter>
-		</Card>
+				<CardFooter>
+					<Button type="button" variant="secondary" className="rounded-xl" onClick={() => navigate('/movements')}>
+						Volver
+					</Button>
+				</CardFooter>
+			</Card>
+		</>
 	);
 };
