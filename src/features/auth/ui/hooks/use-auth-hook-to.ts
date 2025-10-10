@@ -45,7 +45,7 @@ export class UseAuthHookInteractor {
 	static expectLoginFormInDocument() {
 		expect(screen.getByText('Iniciar sesión')).toBeInTheDocument();
 		expect(screen.getByText('Email')).toBeInTheDocument();
-		expect(screen.getByText('Password')).toBeInTheDocument();
+		expect(screen.getByText('Contraseña')).toBeInTheDocument();
 		expect(screen.getByRole('button', { name: 'Entrar' })).toBeInTheDocument();
 		expect(screen.getByText('Regístrate')).toBeInTheDocument();
 	}
