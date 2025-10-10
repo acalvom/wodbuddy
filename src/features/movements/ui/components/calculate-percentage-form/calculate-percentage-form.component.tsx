@@ -37,7 +37,7 @@ export const CalculatePercentageForm = ({ movement }: { movement: Movement }) =>
 							</FormItem>
 						)}
 					/>
-					<Button type="submit" className="glow" variant="ghost">
+					<Button type="submit" className="glow" variant="ghost" aria-label="Calcular porcentaje">
 						<Calculator />
 					</Button>
 				</div>
