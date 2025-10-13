@@ -28,10 +28,20 @@ export function useAuth() {
 	};
 
 	useEffect(() => {
-		const unsubscribe = sessionService.subscribeToAuthChanges(async () => {
+		let unsubscribe: (() => void) | null = null;
+
+		sessionService.subscribeToAuthChanges(async () => {
 			await queryClient.invalidateQueries({ queryKey: AuthQueryKeys.user() });
-			return unsubscribe;
+		}).then((unsubscribeFn) => {
+			unsubscribe = unsubscribeFn;
 		});
+
+		// Cleanup function para evitar memory leaks
+		return () => {
+			if (unsubscribe) {
+				unsubscribe();
+			}
+		};
 	}, [sessionService, queryClient]);
 
 	return {
