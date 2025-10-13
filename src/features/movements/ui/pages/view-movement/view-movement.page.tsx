@@ -7,55 +7,31 @@ import { CardHeader } from '@/common/ui/custom-components/card/card-header.tsx';
 import { Loading } from '@/common/ui/custom-components/loading/loading.tsx';
 import { Toast } from '@/common/ui/custom-components/toast/toast.tsx';
 import { Button } from '@/common/ui/shade-ui/components/ui/button.tsx';
+import { useGetCurrentPR } from '@/features/marks/ui/controllers/use-get-current-pr.hook';
+import { useGetCurrentRM } from '@/features/marks/ui/controllers/use-get-current-rm.hook';
+import { useGetMarksByMovement } from '@/features/marks/ui/controllers/use-get-marks-by-movement.hook';
 import { useGetMovement } from '@/features/movements/ui/controllers/use-get-movement.hook.ts';
 import { HeaderSection } from './header-section/header.section';
 import { MarkHistorySection } from './mark-history-section/mark-history.section';
 import { PercentageCalculatorSection } from './percentage-calculator-section/percentage-calculator.section';
-
-// TODO: generar dominio
-// TODO: Eliminar mocked data e implementar servicios
-export interface Mark {
-	id: number;
-	movementId: number;
-	date: Date;
-	value: number;
-	isPr: boolean;
-}
-const movementMarks: Mark[] = [
-	{
-		id: 1,
-		movementId: 1,
-		date: new Date('2025-10-01'),
-		value: 70,
-		isPr: false
-	},
-	{
-		id: 2,
-		movementId: 1,
-		date: new Date('2025-11-01'),
-		value: 75,
-		isPr: true
-	},
-	{
-		id: 3,
-		movementId: 1,
-		date: new Date('2025-12-01'),
-		value: 72,
-		isPr: false
-	}
-];
 
 export const ViewMovementPage = () => {
 	const { id } = useParams();
 	const movementId = Parser.toInt(id!);
 	const navigate = useNavigate();
 
-	const { data: movement, isLoading, isError } = useGetMovement(movementId!);
-	const pr = movementMarks.find((mark) => mark.isPr);
+	const { data: movement, isLoading: isLoadingMovement, isError: isMovementError } = useGetMovement(movementId!);
+	const { data: marks, isLoading: isLoadingMarks, isError: isMarksError } = useGetMarksByMovement(movementId!);
+	const { data: pr, isLoading: isLoadingPr, isError: isPrError } = useGetCurrentPR(movementId!);
+	const { data: rm, isLoading: isLoadingRm, isError: isRmError } = useGetCurrentRM(movementId!);
+	console.log('🎨 ~ rm:', marks, pr, rm);
+
+	const isLoading = isLoadingMovement || isLoadingMarks || isLoadingPr || isLoadingRm;
+	const isError = isMovementError || isMarksError || isPrError || isRmError;
 
 	if (isLoading) return <Loading />;
-	if (isError) return <Toast type="error" title="Error cargando movimiento" open={isError} />;
-	if (!movement || !pr) return <div>Movimiento no encontrado</div>;
+	if (isError) return <Toast type="error" title="Error cargando datos" open={isError} />;
+	if (!movement) return <div>Movimiento no encontrado</div>;
 
 	return (
 		<>
@@ -73,7 +49,7 @@ export const ViewMovementPage = () => {
 				</CardHeader>
 
 				<CardContent>
-					<MarkHistorySection marks={movementMarks} />
+					<MarkHistorySection marks={marks || []} />
 					<PercentageCalculatorSection movement={movement} />
 				</CardContent>
 
