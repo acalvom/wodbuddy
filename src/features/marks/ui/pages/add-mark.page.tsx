@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Parser } from '@/common/domain/parser/parser';
 import { Title } from '@/common/ui/custom-components/title/title';
 import { Toast } from '@/common/ui/custom-components/toast/toast';
@@ -11,6 +11,7 @@ import type { ZodNewMark } from '../models/zod-new-mark';
 import { zodToDomain } from '../models/zod-to-domain.mapper';
 
 export const AddMarkPage = () => {
+	const navigate = useNavigate();
 	const { id } = useParams();
 	const movementId = Parser.toInt(id!);
 	const { user } = useAuth();
@@ -28,6 +29,7 @@ export const AddMarkPage = () => {
 	useEffect(() => {
 		if (isSuccess) {
 			triggerConfetti();
+			navigate(`/movements/${movementId}`);
 		}
 	}, [isSuccess]);
 

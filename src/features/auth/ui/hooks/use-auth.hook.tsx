@@ -1,7 +1,7 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AUTH_USER_KEY } from '@/common/ui/react-query/query-keys/query-keys.ts';
+import { AuthQueryKeys } from '@/common/ui/react-query/query-keys/query-keys';
 import type { AuthUserRequest } from '@/features/auth/domain/interfaces/auth-user-request.ts';
 import { useGetAuthUser } from '@/features/auth/ui/controllers/use-get-auth-user.hook.ts';
 import { useLogin } from '@/features/auth/ui/controllers/use-login.hook.ts';
@@ -29,7 +29,7 @@ export function useAuth() {
 
 	useEffect(() => {
 		const unsubscribe = sessionService.subscribeToAuthChanges(async () => {
-			await queryClient.invalidateQueries({ queryKey: [AUTH_USER_KEY] });
+			await queryClient.invalidateQueries({ queryKey: AuthQueryKeys.user() });
 			return unsubscribe;
 		});
 	}, [sessionService, queryClient]);

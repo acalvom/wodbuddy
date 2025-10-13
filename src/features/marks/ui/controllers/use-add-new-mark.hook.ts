@@ -13,13 +13,8 @@ export const useAddNewMark = () => {
 			return addNewMarkCommand.execute(newMark);
 		},
 		{
-			onSuccess: async (result) => {
+			onSuccess: async () => {
 				await queryClient.invalidateQueries({ queryKey: MarkQueryKeys.all() });
-
-				// TODO: con all no serviria?
-				await queryClient.invalidateQueries({ queryKey: MarkQueryKeys.byMovementId(result.movementId) });
-				await queryClient.invalidateQueries({ queryKey: MarkQueryKeys.currentPrByMovementId(result.movementId) });
-				await queryClient.invalidateQueries({ queryKey: MarkQueryKeys.currentRmByMovementId(result.movementId) });
 			},
 			onError: async (error: Error) => console.error(error.message)
 		}

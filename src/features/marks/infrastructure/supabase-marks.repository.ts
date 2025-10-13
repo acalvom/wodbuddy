@@ -8,14 +8,6 @@ import { newMarkToSupabase, supabaseToMark, supabaseToMarks } from './mappers/ma
 export class SupabaseMarksRepository implements MarksRepository {
 	constructor(private readonly supabase: SupabaseClient) {}
 
-	async getAll(): Promise<Mark[]> {
-		const { data, error } = await this.supabase.from('marks').select('*');
-
-		if (error) throw new Error(error.message);
-
-		return supabaseToMarks(data);
-	}
-
 	async getById(id: Id): Promise<Mark | undefined> {
 		const { data, error } = await this.supabase.from('marks').select().eq('id', id).single();
 
@@ -62,8 +54,6 @@ export class SupabaseMarksRepository implements MarksRepository {
 		return data ? supabaseToMark(data) : undefined;
 	}
 
-	// TODO: remove getAll
-
 	async getCurrentRM(movementId: Id): Promise<Mark | undefined> {
 		const { data, error } = await this.supabase
 			.from('marks')
@@ -73,7 +63,7 @@ export class SupabaseMarksRepository implements MarksRepository {
 			.single();
 
 		if (error && error.code !== 'PGRST116') {
-			//TODO PGRST116 = not found : Crear error NotFound
+			// PGRST116 = not found
 			throw new Error(error.message);
 		}
 

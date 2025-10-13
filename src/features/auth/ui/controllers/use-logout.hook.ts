@@ -1,6 +1,6 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useMutationWrapper } from '@/common/ui/react-query/mutation-wrapper/use-mutation-wrapper.tsx';
-import { LOGOUT_KEY } from '@/common/ui/react-query/query-keys/query-keys.ts';
+import { AuthQueryKeys } from '@/common/ui/react-query/query-keys/query-keys.ts';
 import { AuthLocator } from '@/features/auth/ui/di/auth.locator.ts';
 
 export function useLogout() {
@@ -12,7 +12,7 @@ export function useLogout() {
 			return logoutCommand.execute();
 		},
 		{
-			onSuccess: async () => await queryClient.invalidateQueries({ queryKey: [LOGOUT_KEY] }),
+			onSuccess: async () => await queryClient.invalidateQueries({ queryKey: AuthQueryKeys.logout() }),
 			onError: async (error: Error) => console.error(error.message)
 		}
 	);
