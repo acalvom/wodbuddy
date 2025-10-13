@@ -8,7 +8,6 @@ export const supabaseToMovement = (supabase: SupabaseMovementDto): Movement => {
 	const movementPrimitives: MovementPrimitives = {
 		id: supabase.id,
 		name: supabase.name,
-		image: undefined,
 		rm: supabase.rm ?? undefined,
 		userId: supabase.user_id
 	};
@@ -25,6 +24,6 @@ export const newMovementToSupabase = (newMovement: NewMovement): SupabaseNewMove
 	return {
 		name: newMovement.name,
 		rm: newMovement.rm,
-		user_id: newMovement.userId
+		user_id: newMovement.userId,
 	};
 };

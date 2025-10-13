@@ -4,14 +4,12 @@ import type { MovementPrimitives } from '@/features/movements/domain/entities/mo
 export class Movement implements MovementPrimitives {
 	id: number;
 	name: string;
-	image?: string;
 	rm?: number;
 	userId: string;
 
-	constructor({ id, name, image, rm, userId }: MovementPrimitives) {
+	constructor({ id, name, rm, userId }: MovementPrimitives) {
 		this.id = id;
 		this.name = name;
-		this.image = image;
 		this.rm = rm;
 		this.userId = userId;
 	}
