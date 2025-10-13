@@ -3,7 +3,6 @@ import { useForm } from 'react-hook-form';
 import { DatePickerFormItem } from '@/common/ui/custom-components/form-items/datepicker-form-item.tsx';
 import { InputFormItem } from '@/common/ui/custom-components/form-items/input-form-item.tsx';
 import { SubmitButton } from '@/common/ui/custom-components/form-items/submit-button-item';
-import { useConfetti } from '@/common/ui/hooks/use-confetti.hook.ts';
 import { Form } from '@/common/ui/shade-ui/components/ui/form';
 import { type ZodNewMark, ZodNewMarkFormSchema } from '../../models/zod-new-mark';
 

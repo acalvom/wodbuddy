@@ -6,7 +6,7 @@ export interface MarksRepository {
 	getAll(): Promise<Mark[]>;
 	getById(id: Id): Promise<Mark | undefined>;
 	create(newMark: NewMark): Promise<Mark>;
-	getByMovementId(movementId: Id, userId: string): Promise<Mark[]>;
-	getCurrentPR(movementId: Id, userId: string): Promise<Mark | undefined>;
-	getCurrentRM(movementId: Id, userId: string): Promise<Mark | undefined>;
+	getByMovementId(movementId: Id): Promise<Mark[]>;
+	getCurrentPR(movementId: Id): Promise<Mark | undefined>;
+	getCurrentRM(movementId: Id): Promise<Mark | undefined>;
 }

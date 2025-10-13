@@ -1,8 +1,8 @@
-import { Mark } from "../../domain/entities/mark";
-import type { MarkPrimitives } from "../../domain/entities/mark.primitives";
-import type { NewMark } from "../../domain/entities/new-mark";
-import type { SupabaseMarkDto } from "../dtos/supabase-mark.dto";
-import type { SupabaseNewMarkDto } from "../dtos/supabase-new-mark.dto";
+import { Mark } from '../../domain/entities/mark';
+import type { MarkPrimitives } from '../../domain/entities/mark.primitives';
+import type { NewMark } from '../../domain/entities/new-mark';
+import type { SupabaseMarkDto } from '../dtos/supabase-mark.dto';
+import type { SupabaseNewMarkDto } from '../dtos/supabase-new-mark.dto';
 
 export const supabaseToMark = (supabase: SupabaseMarkDto): Mark => {
 	const markPrimitives: MarkPrimitives = {
@@ -31,4 +31,3 @@ export const newMarkToSupabase = (newMark: NewMark): SupabaseNewMarkDto => {
 		user_id: newMark.userId
 	};
 };
-	

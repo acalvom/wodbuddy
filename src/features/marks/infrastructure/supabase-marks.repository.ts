@@ -31,16 +31,14 @@ export class SupabaseMarksRepository implements MarksRepository {
 
 		if (error) throw new Error(error.message);
 
-		// Los flags is_pr e is_rm se actualizan automáticamente por el trigger de Supabase
 		return supabaseToMark(data);
 	}
 
-	async getByMovementId(movementId: Id, userId: string): Promise<Mark[]> {
+	async getByMovementId(movementId: Id): Promise<Mark[]> {
 		const { data, error } = await this.supabase
 			.from('marks')
-			.select('*')
+			.select()
 			.eq('movement_id', movementId)
-			.eq('user_id', userId)
 			.order('created_at', { ascending: false });
 
 		if (error) throw new Error(error.message);
@@ -48,12 +46,11 @@ export class SupabaseMarksRepository implements MarksRepository {
 		return supabaseToMarks(data);
 	}
 
-	async getCurrentPR(movementId: Id, userId: string): Promise<Mark | undefined> {
+	async getCurrentPR(movementId: Id): Promise<Mark | undefined> {
 		const { data, error } = await this.supabase
 			.from('marks')
-			.select('*')
+			.select()
 			.eq('movement_id', movementId)
-			.eq('user_id', userId)
 			.eq('is_pr', true)
 			.single();
 
@@ -65,12 +62,13 @@ export class SupabaseMarksRepository implements MarksRepository {
 		return data ? supabaseToMark(data) : undefined;
 	}
 
-	async getCurrentRM(movementId: Id, userId: string): Promise<Mark | undefined> {
+	// TODO: remove getAll
+
+	async getCurrentRM(movementId: Id): Promise<Mark | undefined> {
 		const { data, error } = await this.supabase
 			.from('marks')
-			.select('*')
+			.select()
 			.eq('movement_id', movementId)
-			.eq('user_id', userId)
 			.eq('is_rm', true)
 			.single();
 
