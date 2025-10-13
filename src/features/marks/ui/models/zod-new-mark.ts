@@ -1,6 +1,6 @@
 import z from 'zod';
 
-export const ZodAddMarkFormSchema = z.object({
+export const ZodNewMarkFormSchema = z.object({
 	value: z
 		.string()
 		.min(1, 'Sin valor no hay marca')
@@ -9,4 +9,4 @@ export const ZodAddMarkFormSchema = z.object({
 	createdOn: z.date().optional()
 });
 
-export type ZodAddMark = z.infer<typeof ZodAddMarkFormSchema>;
+export type ZodNewMark = z.infer<typeof ZodNewMarkFormSchema>;
