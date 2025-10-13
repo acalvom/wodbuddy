@@ -1,4 +1,4 @@
-/** biome-ignore-all lint/correctness/noNestedComponentDefinitions: <explanation> */
+/** biome-ignore-all lint/correctness/noNestedComponentDefinitions: : Nested component definitions are used here for encapsulation and to keep related logic together, which improves maintainability and readability in this context. */
 import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import * as React from 'react';
 import { type DayButton, DayPicker, getDefaultClassNames } from 'react-day-picker';
