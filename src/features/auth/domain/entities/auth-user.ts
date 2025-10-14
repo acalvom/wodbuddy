@@ -1,3 +1,4 @@
+import { DateFormatter } from '@/common/domain/date/date';
 import type { IAuthUser } from '@/features/auth/domain/interfaces/auth-user.ts';
 import type { AuthUserPrimitives } from '@/features/auth/domain/interfaces/auth-user-primitives.ts';
 
@@ -19,7 +20,7 @@ export class AuthUser implements IAuthUser {
 			id: value.id,
 			email: value.email,
 			token: value.token ?? undefined,
-			createdAt: new Date(value.createdAt) // TODO: parser de fechas en common/domain
+			createdAt: DateFormatter.toDate(value.createdAt)
 		});
 	}
 }
