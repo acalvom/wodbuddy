@@ -24,7 +24,6 @@ export const ViewMovementPage = () => {
 	const { data: marks, isLoading: isLoadingMarks, isError: isMarksError } = useGetMarksByMovement(movementId!);
 	const { data: pr, isLoading: isLoadingPr, isError: isPrError } = useGetCurrentPR(movementId!);
 	const { data: rm, isLoading: isLoadingRm, isError: isRmError } = useGetCurrentRM(movementId!);
-	console.log('🎨 ~ rm:', marks, pr, rm);
 
 	const isLoading = isLoadingMovement || isLoadingMarks || isLoadingPr || isLoadingRm;
 	const isError = isMovementError || isMarksError || isPrError || isRmError;
@@ -45,11 +44,11 @@ export const ViewMovementPage = () => {
 			</Button>
 			<Card>
 				<CardHeader className="pb-4">
-					<HeaderSection movement={movement} pr={pr} />
+					<HeaderSection movement={movement} pr={pr} rm={rm} />
 				</CardHeader>
 
 				<CardContent>
-					<MarkHistorySection marks={marks || []} />
+					<MarkHistorySection marks={marks || []} movementId={movementId!} />
 					<PercentageCalculatorSection movement={movement} />
 				</CardContent>
 

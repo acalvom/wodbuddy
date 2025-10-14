@@ -7,21 +7,21 @@ import type { Movement } from '@/features/movements/domain/entities/movement';
 interface HeaderSectionProps {
 	movement: Movement;
 	pr?: Mark;
+	rm?: Mark;
 }
 
-// TODO: refa ctor
-export const HeaderSection = ({ movement, pr }: HeaderSectionProps) => {
+// TODO: refactorizar
+
+export const HeaderSection = ({ movement, pr, rm }: HeaderSectionProps) => {
 	return (
 		<>
 			<Title>{movement.name}</Title>
-			<Subtitle>{`Tu RM actual: ${movement.rm} kg`}</Subtitle>
+			<Subtitle>{`Tu RM actual: ${rm?.value} kg`}</Subtitle>
 			{pr ? (
 				<>
 					<Subtitle>{`Tu PR: ${pr.value} kg`}</Subtitle>
 					{pr.createdOn && (
-						<p className="text-xs text-muted-foreground mt-1">
-							{`Conseguido el ${DateFormatter.format(pr.createdOn)}`}
-						</p>
+						<p className="text-xs text-muted-foreground mt-1">{`Conseguido el ${DateFormatter.format(pr.createdOn)}`}</p>
 					)}
 				</>
 			) : (

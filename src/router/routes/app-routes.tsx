@@ -3,6 +3,7 @@ import { AppLayout } from '@/app/layouts/app.layout';
 import { LoginPage } from '@/features/auth/ui/pages/login.page';
 import { SignupPage } from '@/features/auth/ui/pages/signup.page';
 import { AddMarkPage } from '@/features/marks/ui/pages/add-mark.page';
+import { MarksPage } from '@/features/marks/ui/pages/marks.page';
 import { AddMovementPage } from '@/features/movements/ui/pages/add-movement/add-movement.page.tsx';
 import { MovementsPage } from '@/features/movements/ui/pages/movements/movements.page.tsx';
 import { ViewMovementPage } from '@/features/movements/ui/pages/view-movement/view-movement.page.tsx';
@@ -25,6 +26,7 @@ export const appRoutes = [
 							{ index: true, element: <MovementsPage /> },
 							{ path: 'add', element: <AddMovementPage /> },
 							{ path: ':id', element: <ViewMovementPage /> },
+							{ path: ':id/marks', element: <MarksPage /> },
 							{ path: ':id/marks/add', element: <AddMarkPage /> }
 						]
 					}
