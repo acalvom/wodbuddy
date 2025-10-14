@@ -5,6 +5,7 @@ import type { NewMark } from '../entities/new-mark';
 export interface MarksRepository {
 	getById(id: Id): Promise<Mark | undefined>;
 	create(newMark: NewMark): Promise<Mark>;
+	delete(id: Id): Promise<void>;
 	getByMovementId(movementId: Id): Promise<Mark[]>;
 	getCurrentPR(movementId: Id): Promise<Mark | undefined>;
 	getCurrentRM(movementId: Id): Promise<Mark | undefined>;

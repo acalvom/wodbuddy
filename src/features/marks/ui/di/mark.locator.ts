@@ -1,5 +1,6 @@
 import { supabase } from '@/common/infrastructure/supabase-client';
 import { AddNewMarkCommand } from '../../application/commands/add-new-mark.command';
+import { DeleteMarkCommand } from '../../application/commands/delete-mark.command';
 import { GetCurrentPRQuery } from '../../application/queries/get-current-pr.query';
 import { GetCurrentRMQuery } from '../../application/queries/get-current-rm.query';
 import { GetMarksByMovementQuery } from '../../application/queries/get-marks-by-movement.query';
@@ -11,6 +12,10 @@ export class MarkLocator {
 
 	static addNewMarkCommand() {
 		return new AddNewMarkCommand(MarkLocator.marksRepository);
+	}
+
+	static deleteMarkCommand() {
+		return new DeleteMarkCommand(MarkLocator.marksRepository);
 	}
 
 	static getMarksByMovementQuery() {

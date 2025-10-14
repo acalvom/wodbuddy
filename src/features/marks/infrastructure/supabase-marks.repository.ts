@@ -26,6 +26,12 @@ export class SupabaseMarksRepository implements MarksRepository {
 		return supabaseToMark(data);
 	}
 
+	async delete(id: Id): Promise<void> {
+		const { error } = await this.supabase.from('marks').delete().eq('id', id);
+
+		if (error) throw new Error(error.message);
+	}
+
 	async getByMovementId(movementId: Id): Promise<Mark[]> {
 		const { data, error } = await this.supabase
 			.from('marks')
