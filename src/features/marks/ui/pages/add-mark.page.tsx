@@ -15,7 +15,7 @@ export const AddMarkPage = () => {
 	const { id } = useParams();
 	const movementId = Parser.toInt(id!);
 	const { user } = useAuth();
-	const { mutateAsync: addNewMark, isPending, isSuccess, error } = useAddNewMark();
+	const { mutateAsync: addNewMark, isPending, isSuccess, error } = useAddNewMark(movementId!);
 	const { triggerConfetti } = useConfetti();
 
 	const onSubmit = async (data: ZodNewMark) => {
