@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@/common/ui/shade-ui/components/ui/button.tsx';
-import { MovementsList } from '@/features/movements/ui/components/movements-list/movements-list.component.tsx';
+import { Button } from '@/common/ui/shade-ui/components/ui/button';
+import { MovementsList } from '@/features/movements/ui/components/movements-list/movements-list.component';
 
 export const MovementsPage = () => {
 	const navigate = useNavigate();

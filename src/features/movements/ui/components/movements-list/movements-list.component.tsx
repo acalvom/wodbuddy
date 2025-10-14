@@ -1,6 +1,6 @@
-import { Loading } from '@/common/ui/custom-components/loading/loading.tsx';
-import { MovementCard } from '@/features/movements/ui/components/movement-card/movement-card.component.tsx';
-import { useGetMovements } from '@/features/movements/ui/controllers/use-get-movements.hook.ts';
+import { Loading } from '@/common/ui/custom-components/loading/loading';
+import { MovementCard } from '@/features/movements/ui/components/movement-card/movement-card.component';
+import { useGetMovements } from '@/features/movements/ui/controllers/use-get-movements.hook';
 
 export const MovementsList = () => {
 	const { data: movements, isPending, isError } = useGetMovements();

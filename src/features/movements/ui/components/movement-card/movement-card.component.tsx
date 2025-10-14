@@ -1,13 +1,13 @@
 import { useNavigate } from 'react-router-dom';
-import { Card } from '@/common/ui/custom-components/card/card.tsx';
-import { CardContent } from '@/common/ui/custom-components/card/card-content.tsx';
-import { CardFooter } from '@/common/ui/custom-components/card/card-footer.tsx';
-import { CardHeader } from '@/common/ui/custom-components/card/card-header.tsx';
-import { Subtitle } from '@/common/ui/custom-components/subtitle/subtitle.tsx';
-import { Title } from '@/common/ui/custom-components/title/title.tsx';
-import { Button } from '@/common/ui/shade-ui/components/ui/button.tsx';
-import type { Movement } from '@/features/movements/domain/entities/movement.ts';
-import { MovementPercentage } from '@/features/movements/ui/components/movement-percentage/movement-percentage.component.tsx';
+import { Card } from '@/common/ui/custom-components/card/card';
+import { CardContent } from '@/common/ui/custom-components/card/card-content';
+import { CardFooter } from '@/common/ui/custom-components/card/card-footer';
+import { CardHeader } from '@/common/ui/custom-components/card/card-header';
+import { Subtitle } from '@/common/ui/custom-components/subtitle/subtitle';
+import { Title } from '@/common/ui/custom-components/title/title';
+import { Button } from '@/common/ui/shade-ui/components/ui/button';
+import type { Movement } from '@/features/movements/domain/entities/movement';
+import { MovementPercentage } from '@/features/movements/ui/components/movement-percentage/movement-percentage.component';
 
 export const MovementCard = ({ movement }: { movement: Movement }) => {
 	const leftPercentages = [50, 60, 70, 80];

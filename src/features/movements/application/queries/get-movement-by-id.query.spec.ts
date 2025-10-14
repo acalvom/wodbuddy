@@ -1,7 +1,7 @@
 import { mock } from 'vitest-mock-extended';
-import { GetMovementByIdQuery } from '@/features/movements/application/queries/get-movement-by-id.query.ts';
-import { MovementMother } from '@/features/movements/domain/mothers/movement.mother.ts';
-import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository.ts';
+import { GetMovementByIdQuery } from '@/features/movements/application/queries/get-movement-by-id.query';
+import { MovementMother } from '@/features/movements/domain/mothers/movement.mother';
+import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository';
 
 describe('GetMovementByIdQuery', () => {
 	afterEach(() => vi.clearAllMocks());

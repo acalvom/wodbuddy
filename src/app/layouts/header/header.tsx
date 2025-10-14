@@ -2,8 +2,8 @@ import { LogOut } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import logo from '@/assets/images/w-bar-logo.svg';
 import { useScroll } from '@/common/ui/hooks/use-scroll.hook';
-import { Button } from '@/common/ui/shade-ui/components/ui/button.tsx';
-import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook.tsx';
+import { Button } from '@/common/ui/shade-ui/components/ui/button';
+import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook';
 
 export const Header = () => {
 	const { isAuthenticated, user, onLogout } = useAuth();

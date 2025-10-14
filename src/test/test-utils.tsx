@@ -2,7 +2,7 @@ import { QueryClient, type QueryClientConfig, QueryClientProvider } from '@tanst
 import { type RenderOptions, render } from '@testing-library/react';
 import type { ReactElement } from 'react';
 import { createMemoryRouter, MemoryRouter, Route, RouterProvider, Routes } from 'react-router-dom';
-import { appRoutes } from '@/router/routes/app-routes.tsx';
+import { appRoutes } from '@/router/routes/app-routes';
 
 const createTestQueryClient = (config?: QueryClientConfig) => {
 	return new QueryClient({

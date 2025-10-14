@@ -1,5 +1,5 @@
-import type { Disc } from '@/features/movements/domain/value-objects/disc.ts';
-import { DiscListItem } from '@/features/movements/ui/components/disc-list-item/disc-list-item.tsx';
+import type { Disc } from '@/features/movements/domain/value-objects/disc';
+import { DiscListItem } from '@/features/movements/ui/components/disc-list-item/disc-list-item';
 
 export const DiscList = ({ discs }: { discs: Disc[] }) => {
 	return (

@@ -1,8 +1,8 @@
 import { useQueryClient } from '@tanstack/react-query';
-import type { Id } from '@/common/domain/interfaces/id.ts';
-import { useMutationWrapper } from '@/common/ui/react-query/mutation-wrapper/use-mutation-wrapper.tsx';
-import { MarkQueryKeys } from '@/common/ui/react-query/query-keys/query-keys.ts';
-import { MarkLocator } from '@/features/marks/ui/di/mark.locator.ts';
+import type { Id } from '@/common/domain/interfaces/id';
+import { useMutationWrapper } from '@/common/ui/react-query/mutation-wrapper/use-mutation-wrapper';
+import { MarkQueryKeys } from '@/common/ui/react-query/query-keys/query-keys';
+import { MarkLocator } from '@/features/marks/ui/di/mark.locator';
 
 export const useDeleteMark = (movementId: Id) => {
 	const queryClient = useQueryClient();

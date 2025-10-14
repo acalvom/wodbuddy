@@ -1,7 +1,7 @@
 import { vi } from 'vitest';
-import type { UseMutation } from '@/common/ui/react-query/mutation-wrapper/use-mutation-wrapper.tsx';
-import type { NewMovement } from '@/features/movements/domain/entities/new-movement.ts';
-import { screen, userEvent } from '@/test/test-utils.tsx';
+import type { UseMutation } from '@/common/ui/react-query/mutation-wrapper/use-mutation-wrapper';
+import type { NewMovement } from '@/features/movements/domain/entities/new-movement';
+import { screen, userEvent } from '@/test/test-utils';
 
 type AddNewMovementPageTOType = UseMutation<void, Error, NewMovement, unknown>;
 

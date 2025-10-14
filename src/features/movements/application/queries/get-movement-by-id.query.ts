@@ -1,7 +1,7 @@
-import type { Query } from '@/common/application/usecase/query.ts';
-import type { Id } from '@/common/domain/interfaces/id.ts';
-import type { Movement } from '@/features/movements/domain/entities/movement.ts';
-import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository.ts';
+import type { Query } from '@/common/application/usecase/query';
+import type { Id } from '@/common/domain/interfaces/id';
+import type { Movement } from '@/features/movements/domain/entities/movement';
+import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository';
 
 export class GetMovementByIdQuery implements Query<Movement | undefined, Id> {
 	constructor(private readonly movementRepository: MovementRepository) {}

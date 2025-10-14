@@ -1,6 +1,6 @@
 import type { AuthResponsePassword, UserResponse } from '@supabase/supabase-js';
-import { AuthUser } from '@/features/auth/domain/entities/auth-user.ts';
-import type { AuthUserPrimitives } from '@/features/auth/domain/interfaces/auth-user-primitives.ts';
+import { AuthUser } from '@/features/auth/domain/entities/auth-user';
+import type { AuthUserPrimitives } from '@/features/auth/domain/interfaces/auth-user-primitives';
 
 export const authResponseToAuthUserMapper = (raw: AuthResponsePassword['data']): AuthUser => {
 	const authUserPrimitives: AuthUserPrimitives = {

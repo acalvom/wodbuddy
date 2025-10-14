@@ -1,5 +1,5 @@
-import type { AuthEvent } from '@/features/auth/domain/interfaces/auth-event.ts';
-import type { AuthListener } from '@/features/auth/domain/repositories/auth.listener.ts';
+import type { AuthEvent } from '@/features/auth/domain/interfaces/auth-event';
+import type { AuthListener } from '@/features/auth/domain/repositories/auth.listener';
 
 export class SessionService {
 	constructor(private readonly authListener: AuthListener) {}

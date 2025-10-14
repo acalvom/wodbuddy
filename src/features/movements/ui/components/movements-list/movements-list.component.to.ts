@@ -1,6 +1,6 @@
 import type { UseQueryResult } from '@tanstack/react-query';
-import type { Movement } from '@/features/movements/domain/entities/movement.ts';
-import { MovementMother } from '@/features/movements/domain/mothers/movement.mother.ts';
+import type { Movement } from '@/features/movements/domain/entities/movement';
+import { MovementMother } from '@/features/movements/domain/mothers/movement.mother';
 
 type MovementsListComponentTOType = UseQueryResult<Movement[], Error>;
 

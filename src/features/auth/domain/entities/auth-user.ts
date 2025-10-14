@@ -1,6 +1,6 @@
 import { DateFormatter } from '@/common/domain/date/date';
-import type { IAuthUser } from '@/features/auth/domain/interfaces/auth-user.ts';
-import type { AuthUserPrimitives } from '@/features/auth/domain/interfaces/auth-user-primitives.ts';
+import type { IAuthUser } from '@/features/auth/domain/interfaces/auth-user';
+import type { AuthUserPrimitives } from '@/features/auth/domain/interfaces/auth-user-primitives';
 
 export class AuthUser implements IAuthUser {
 	id: string;

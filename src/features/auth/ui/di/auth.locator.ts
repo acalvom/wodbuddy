@@ -1,11 +1,11 @@
-import { supabase } from '@/common/infrastructure/supabase-client.ts';
-import { LoginCommand } from '@/features/auth/application/commands/login.command.ts';
-import { LogoutCommand } from '@/features/auth/application/commands/logout.command.ts';
-import { SignupCommand } from '@/features/auth/application/commands/signup.command.ts';
-import { GetAuthUserQuery } from '@/features/auth/application/queries/get-auth-user.query.ts';
-import { SessionService } from '@/features/auth/application/services/session.service.ts';
-import { SupabaseAuthListener } from '@/features/auth/infrastructure/supabase-auth.listener.ts';
-import { SupabaseAuthRepository } from '@/features/auth/infrastructure/supabase-auth.repository.ts';
+import { supabase } from '@/common/infrastructure/supabase-client';
+import { LoginCommand } from '@/features/auth/application/commands/login.command';
+import { LogoutCommand } from '@/features/auth/application/commands/logout.command';
+import { SignupCommand } from '@/features/auth/application/commands/signup.command';
+import { GetAuthUserQuery } from '@/features/auth/application/queries/get-auth-user.query';
+import { SessionService } from '@/features/auth/application/services/session.service';
+import { SupabaseAuthListener } from '@/features/auth/infrastructure/supabase-auth.listener';
+import { SupabaseAuthRepository } from '@/features/auth/infrastructure/supabase-auth.repository';
 
 export class AuthLocator {
 	private static supabaseClient = supabase;

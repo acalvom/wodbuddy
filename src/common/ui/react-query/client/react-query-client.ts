@@ -1,5 +1,5 @@
 import { type DefaultOptions, QueryClient } from '@tanstack/react-query';
-import { HttpError, HttpStatusCodes } from './http-error.ts';
+import { HttpError, HttpStatusCodes } from './http-error';
 
 const defaultOptions: DefaultOptions = {
 	queries: {

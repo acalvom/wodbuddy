@@ -1,6 +1,6 @@
-import type { Query } from '@/common/application/usecase/query.ts';
-import type { Movement } from '@/features/movements/domain/entities/movement.ts';
-import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository.ts';
+import type { Query } from '@/common/application/usecase/query';
+import type { Movement } from '@/features/movements/domain/entities/movement';
+import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository';
 
 export class GetMovementsQuery implements Query<Movement[]> {
 	constructor(private movementRepository: MovementRepository) {}

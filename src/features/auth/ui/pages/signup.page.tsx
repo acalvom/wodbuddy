@@ -1,4 +1,4 @@
-import { SignupForm } from '@/features/auth/ui/components/signup-form.component.tsx';
+import { SignupForm } from '@/features/auth/ui/components/signup-form.component';
 
 export function SignupPage() {
 	return (

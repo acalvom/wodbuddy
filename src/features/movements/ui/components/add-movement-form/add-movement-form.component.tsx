@@ -1,9 +1,9 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { InputFormItem } from '@/common/ui/custom-components/form-items/input-form-item.tsx';
+import { InputFormItem } from '@/common/ui/custom-components/form-items/input-form-item';
 import { SubmitButton } from '@/common/ui/custom-components/form-items/submit-button-item';
-import { Form } from '@/common/ui/shade-ui/components/ui/form.tsx';
-import { type ZodNewMovement, ZodNewMovementSchema } from '@/features/movements/ui/models/zod-new-movement.ts';
+import { Form } from '@/common/ui/shade-ui/components/ui/form';
+import { type ZodNewMovement, ZodNewMovementSchema } from '@/features/movements/ui/models/zod-new-movement';
 
 type AddMovementFormProps = {
 	onSubmit: (data: ZodNewMovement) => Promise<void>;

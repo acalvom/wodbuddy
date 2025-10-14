@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import type { AuthEvent } from '@/features/auth/domain/interfaces/auth-event.ts';
+import type { AuthEvent } from '@/features/auth/domain/interfaces/auth-event';
 
 export class SupabaseAuthListener {
 	constructor(private readonly supabase: SupabaseClient) {}

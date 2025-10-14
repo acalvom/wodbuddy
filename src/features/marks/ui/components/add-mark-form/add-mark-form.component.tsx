@@ -1,7 +1,7 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
-import { DatePickerFormItem } from '@/common/ui/custom-components/form-items/datepicker-form-item.tsx';
-import { InputFormItem } from '@/common/ui/custom-components/form-items/input-form-item.tsx';
+import { DatePickerFormItem } from '@/common/ui/custom-components/form-items/datepicker-form-item';
+import { InputFormItem } from '@/common/ui/custom-components/form-items/input-form-item';
 import { SubmitButton } from '@/common/ui/custom-components/form-items/submit-button-item';
 import { Form } from '@/common/ui/shade-ui/components/ui/form';
 import { type ZodNewMark, ZodNewMarkFormSchema } from '../../models/zod-new-mark';

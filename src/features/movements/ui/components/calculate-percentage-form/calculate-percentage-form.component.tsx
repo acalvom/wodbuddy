@@ -3,8 +3,8 @@ import { Calculator } from 'lucide-react';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Button } from '@/common/ui/shade-ui/components/ui/button';
-import { Form, FormControl, FormField, FormItem, FormMessage } from '@/common/ui/shade-ui/components/ui/form.tsx';
-import { Input } from '@/common/ui/shade-ui/components/ui/input.tsx';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/common/ui/shade-ui/components/ui/form';
+import { Input } from '@/common/ui/shade-ui/components/ui/input';
 import type { Movement } from '@/features/movements/domain/entities/movement';
 import { type ZodPercentageForm, ZodPercentageSchema } from '../../models/zod-percentage';
 

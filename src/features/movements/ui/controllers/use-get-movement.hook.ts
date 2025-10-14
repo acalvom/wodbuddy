@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import type { Id } from '@/common/domain/interfaces/id.ts';
-import { MovementQueryKeys } from '@/common/ui/react-query/query-keys/query-keys.ts';
-import { MovementLocator } from '@/features/movements/ui/di/movement.locator.ts';
+import type { Id } from '@/common/domain/interfaces/id';
+import { MovementQueryKeys } from '@/common/ui/react-query/query-keys/query-keys';
+import { MovementLocator } from '@/features/movements/ui/di/movement.locator';
 
 export const useGetMovement = (id: Id) => {
 	return useQuery({

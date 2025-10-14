@@ -10,8 +10,8 @@ import {
 	useFormContext,
 	useFormState
 } from 'react-hook-form';
-import { Label } from '@/common/ui/shade-ui/components/ui/label.tsx';
-import { cn } from '@/common/ui/shade-ui/components/lib/utils.ts';
+import { cn } from '@/common/ui/shade-ui/components/lib/utils';
+import { Label } from '@/common/ui/shade-ui/components/ui/label';
 
 const Form = FormProvider;
 

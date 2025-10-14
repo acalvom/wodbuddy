@@ -1,5 +1,5 @@
 import { Parser } from '@/common/domain/parser/parser';
-import type { MovementPrimitives } from '@/features/movements/domain/entities/movement.primitives.ts';
+import type { MovementPrimitives } from '@/features/movements/domain/entities/movement.primitives';
 
 // TODO: eliminar atributo rm -> lo cogemos de las marcas
 export class Movement implements MovementPrimitives {

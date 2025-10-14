@@ -1,4 +1,4 @@
-import { Color } from '@/features/movements/domain/value-objects/color.ts';
+import { Color } from '@/features/movements/domain/value-objects/color';
 
 export class Disc {
 	value: number;

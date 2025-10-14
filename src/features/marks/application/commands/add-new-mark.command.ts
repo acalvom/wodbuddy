@@ -1,4 +1,4 @@
-import type { Command } from '@/common/application/usecase/command.ts';
+import type { Command } from '@/common/application/usecase/command';
 import type { Mark } from '../../domain/entities/mark';
 import type { NewMark } from '../../domain/entities/new-mark';
 import type { MarksRepository } from '../../domain/repositories/marks.repository';

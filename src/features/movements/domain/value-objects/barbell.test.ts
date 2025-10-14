@@ -1,7 +1,7 @@
 import { expect } from 'vitest';
-import { BarbellMother } from '@/features/movements/domain/mothers/barbell.mother.ts';
-import { BarbellType } from '@/features/movements/domain/value-objects/barbell-type.ts';
-import { Disc } from '@/features/movements/domain/value-objects/disc.ts';
+import { BarbellMother } from '@/features/movements/domain/mothers/barbell.mother';
+import { BarbellType } from '@/features/movements/domain/value-objects/barbell-type';
+import { Disc } from '@/features/movements/domain/value-objects/disc';
 
 describe('BarbellEntity', () => {
 	it('should return totalWeight with empty barbell', () => {

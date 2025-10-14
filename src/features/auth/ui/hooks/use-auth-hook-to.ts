@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react';
 import { expect, vi } from 'vitest';
-import type { AuthUser } from '@/features/auth/domain/entities/auth-user.ts';
-import type { AuthUserRequest } from '@/features/auth/domain/interfaces/auth-user-request.ts';
+import type { AuthUser } from '@/features/auth/domain/entities/auth-user';
+import type { AuthUserRequest } from '@/features/auth/domain/interfaces/auth-user-request';
 
 type UseAuthHookTOType = {
 	user: AuthUser | null | undefined;

@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { AuthQueryKeys } from '@/common/ui/react-query/query-keys/query-keys.ts';
-import { AuthLocator } from '@/features/auth/ui/di/auth.locator.ts';
+import { AuthQueryKeys } from '@/common/ui/react-query/query-keys/query-keys';
+import { AuthLocator } from '@/features/auth/ui/di/auth.locator';
 
 export function useGetAuthUser() {
 	return useQuery({

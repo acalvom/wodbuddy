@@ -1,10 +1,10 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { InputFormItem } from '@/common/ui/custom-components/form-items/input-form-item.tsx';
+import { InputFormItem } from '@/common/ui/custom-components/form-items/input-form-item';
 import { SubmitButton } from '@/common/ui/custom-components/form-items/submit-button-item';
-import { Form } from '@/common/ui/shade-ui/components/ui/form.tsx';
-import { type ZodLogin, ZodLoginSchema } from '@/features/auth/ui/models/zod-login.ts';
+import { Form } from '@/common/ui/shade-ui/components/ui/form';
+import { type ZodLogin, ZodLoginSchema } from '@/features/auth/ui/models/zod-login';
 
 type LoginFormProps = {
 	onSubmit: (data: ZodLogin) => Promise<void>;

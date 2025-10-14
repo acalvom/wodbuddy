@@ -1,5 +1,5 @@
 import { Toast } from '@/common/ui/custom-components/toast/toast';
-import { LoginForm } from '@/features/auth/ui/components/login-form.component.tsx';
+import { LoginForm } from '@/features/auth/ui/components/login-form.component';
 import { useAuth } from '../hooks/use-auth.hook';
 import { zodToDomain } from '../mappers/zod-to-domain.mapper';
 import type { ZodLogin } from '../models/zod-login';

@@ -1,7 +1,7 @@
 import { mock } from 'vitest-mock-extended';
-import { AddNewMovementCommand } from '@/features/movements/application/commands/add-new-movement.command.ts';
-import { NewMovementMother } from '@/features/movements/domain/mothers/new-movement.mother.ts';
-import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository.ts';
+import { AddNewMovementCommand } from '@/features/movements/application/commands/add-new-movement.command';
+import { NewMovementMother } from '@/features/movements/domain/mothers/new-movement.mother';
+import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository';
 
 describe('AddNewMovementCommand', () => {
 	afterEach(() => vi.clearAllMocks());

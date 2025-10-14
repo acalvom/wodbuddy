@@ -1,4 +1,4 @@
-import type { AuthUser } from '../entities/auth-user.ts';
+import type { AuthUser } from '../entities/auth-user';
 
 export interface AuthRepository {
 	signup(email: string, password: string): Promise<AuthUser>;

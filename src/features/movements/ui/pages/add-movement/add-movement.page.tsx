@@ -1,10 +1,10 @@
-import { Title } from '@/common/ui/custom-components/title/title.tsx';
-import { Toast } from '@/common/ui/custom-components/toast/toast.tsx';
-import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook.tsx';
-import { AddMovementForm } from '@/features/movements/ui/components/add-movement-form/add-movement-form.component.tsx';
-import { useAddNewMovement } from '@/features/movements/ui/controllers/use-add-new-movement.hook.ts';
-import { zodToDomain } from '@/features/movements/ui/mappers/zod-to-domain.mapper.ts';
-import type { ZodNewMovement } from '@/features/movements/ui/models/zod-new-movement.ts';
+import { Title } from '@/common/ui/custom-components/title/title';
+import { Toast } from '@/common/ui/custom-components/toast/toast';
+import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook';
+import { AddMovementForm } from '@/features/movements/ui/components/add-movement-form/add-movement-form.component';
+import { useAddNewMovement } from '@/features/movements/ui/controllers/use-add-new-movement.hook';
+import { zodToDomain } from '@/features/movements/ui/mappers/zod-to-domain.mapper';
+import type { ZodNewMovement } from '@/features/movements/ui/models/zod-new-movement';
 
 export const AddMovementPage = () => {
 	const { user } = useAuth();

@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import type { NewMovement } from '@/features/movements/domain/entities/new-movement.ts';
+import type { NewMovement } from '@/features/movements/domain/entities/new-movement';
 
 export class NewMovementMother {
 	static one(newMovement?: Partial<NewMovement>): NewMovement {

@@ -1,8 +1,8 @@
-import type { MovementPrimitives } from '@/features/movements/domain/entities/movement.primitives.ts';
-import { Movement } from '@/features/movements/domain/entities/movement.ts';
-import type { NewMovement } from '@/features/movements/domain/entities/new-movement.ts';
-import type { SupabaseMovementDto } from '@/features/movements/infrastructure/dtos/supabase-movement.dto.ts';
-import type { SupabaseNewMovementDto } from '@/features/movements/infrastructure/dtos/supabase-new-movement.dto.ts';
+import { Movement } from '@/features/movements/domain/entities/movement';
+import type { MovementPrimitives } from '@/features/movements/domain/entities/movement.primitives';
+import type { NewMovement } from '@/features/movements/domain/entities/new-movement';
+import type { SupabaseMovementDto } from '@/features/movements/infrastructure/dtos/supabase-movement.dto';
+import type { SupabaseNewMovementDto } from '@/features/movements/infrastructure/dtos/supabase-new-movement.dto';
 
 export const supabaseToMovement = (supabase: SupabaseMovementDto): Movement => {
 	const movementPrimitives: MovementPrimitives = {

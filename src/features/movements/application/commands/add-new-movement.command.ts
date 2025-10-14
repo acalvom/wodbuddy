@@ -1,6 +1,6 @@
-import type { Command } from '@/common/application/usecase/command.ts';
-import type { NewMovement } from '@/features/movements/domain/entities/new-movement.ts';
-import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository.ts';
+import type { Command } from '@/common/application/usecase/command';
+import type { NewMovement } from '@/features/movements/domain/entities/new-movement';
+import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository';
 
 export class AddNewMovementCommand implements Command<NewMovement> {
 	constructor(private readonly movementRepository: MovementRepository) {}

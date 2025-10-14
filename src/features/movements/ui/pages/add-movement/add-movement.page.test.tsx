@@ -1,17 +1,17 @@
 import { userEvent } from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { UseAuthHookInteractor, UseAuthHookTO } from '@/features/auth/ui/hooks/use-auth-hook-to.ts';
+import { UseAuthHookInteractor, UseAuthHookTO } from '@/features/auth/ui/hooks/use-auth-hook-to';
 import {
 	AddMovementPageInteractor,
 	AddMovementPageTO
-} from '@/features/movements/ui/pages/add-movement/add-movement.page.to.ts';
-import { renderAppWithRoutes, screen, waitFor } from '@/test/test-utils.tsx';
+} from '@/features/movements/ui/pages/add-movement/add-movement.page.to';
+import { renderAppWithRoutes, screen, waitFor } from '@/test/test-utils';
 
 vi.mock('@/features/movements/ui/controllers/use-add-new-movement.hook');
 vi.mock('@/features/auth/ui/hooks/use-auth.hook');
 
-import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook.tsx';
-import { useAddNewMovement } from '@/features/movements/ui/controllers/use-add-new-movement.hook.ts';
+import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook';
+import { useAddNewMovement } from '@/features/movements/ui/controllers/use-add-new-movement.hook';
 
 const mockUseAddNewMovement = vi.mocked(useAddNewMovement);
 const mockUseAuth = vi.mocked(useAuth);

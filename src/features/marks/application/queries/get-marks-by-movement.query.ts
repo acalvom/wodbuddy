@@ -1,4 +1,4 @@
-import type { Query } from '@/common/application/usecase/query.ts';
+import type { Query } from '@/common/application/usecase/query';
 import type { Id } from '@/common/domain/interfaces/id';
 import type { Mark } from '../../domain/entities/mark';
 import type { MarksRepository } from '../../domain/repositories/marks.repository';

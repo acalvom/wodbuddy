@@ -1,6 +1,6 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { UseAuthHookInteractor, UseAuthHookTO } from '@/features/auth/ui/hooks/use-auth-hook-to.ts';
+import { UseAuthHookInteractor, UseAuthHookTO } from '@/features/auth/ui/hooks/use-auth-hook-to';
 import { MovementMother } from '@/features/movements/domain/mothers/movement.mother';
 import { MovementsListComponentTO } from '@/features/movements/ui/components/movements-list/movements-list.component.to';
 import { renderAppWithRoutes } from '@/test/test-utils';
@@ -8,7 +8,7 @@ import { renderAppWithRoutes } from '@/test/test-utils';
 vi.mock('@/features/movements/ui/controllers/use-get-movements.hook');
 vi.mock('@/features/auth/ui/hooks/use-auth.hook');
 
-import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook.tsx';
+import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook';
 import { useGetMovements } from '@/features/movements/ui/controllers/use-get-movements.hook';
 
 const mockUseGetMovements = vi.mocked(useGetMovements);

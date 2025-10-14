@@ -1,13 +1,13 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import type { Id } from '@/common/domain/interfaces/id.ts';
-import type { Movement } from '@/features/movements/domain/entities/movement.ts';
-import type { NewMovement } from '@/features/movements/domain/entities/new-movement.ts';
-import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository.ts';
+import type { Id } from '@/common/domain/interfaces/id';
+import type { Movement } from '@/features/movements/domain/entities/movement';
+import type { NewMovement } from '@/features/movements/domain/entities/new-movement';
+import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository';
 import {
 	newMovementToSupabase,
 	supabaseToMovement,
 	supabaseToMovements
-} from '@/features/movements/infrastructure/mappers/movement.mapper.ts';
+} from '@/features/movements/infrastructure/mappers/movement.mapper';
 
 export class SupabaseMovementsRepository implements MovementRepository {
 	constructor(private readonly supabase: SupabaseClient) {}

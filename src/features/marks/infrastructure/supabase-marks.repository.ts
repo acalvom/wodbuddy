@@ -1,5 +1,5 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import type { Id } from '@/common/domain/interfaces/id.ts';
+import type { Id } from '@/common/domain/interfaces/id';
 import type { Mark } from '../domain/entities/mark';
 import type { NewMark } from '../domain/entities/new-mark';
 import type { MarksRepository } from '../domain/repositories/marks.repository';

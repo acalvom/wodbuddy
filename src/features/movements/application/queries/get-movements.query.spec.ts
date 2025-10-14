@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { mock } from 'vitest-mock-extended';
-import { GetMovementsQuery } from '@/features/movements/application/queries/get-movements.query.ts';
-import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository.ts';
-import { MovementMother } from '@/features/movements/domain/mothers/movement.mother.ts';
+import { GetMovementsQuery } from '@/features/movements/application/queries/get-movements.query';
+import { MovementMother } from '@/features/movements/domain/mothers/movement.mother';
+import type { MovementRepository } from '@/features/movements/domain/repositories/movement.repository';
 
 describe('GetMovementsQuery', () => {
 	afterEach(() => vi.clearAllMocks());

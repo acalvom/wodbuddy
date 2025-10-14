@@ -1,5 +1,5 @@
-import type { BarbellType } from '@/features/movements/domain/value-objects/barbell-type.ts';
-import { Disc } from '@/features/movements/domain/value-objects/disc.ts';
+import type { BarbellType } from '@/features/movements/domain/value-objects/barbell-type';
+import { Disc } from '@/features/movements/domain/value-objects/disc';
 
 export class Barbell {
 	public readonly type: BarbellType;

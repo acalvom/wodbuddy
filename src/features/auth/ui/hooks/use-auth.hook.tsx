@@ -2,11 +2,11 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthQueryKeys } from '@/common/ui/react-query/query-keys/query-keys';
-import type { AuthUserRequest } from '@/features/auth/domain/interfaces/auth-user-request.ts';
-import { useGetAuthUser } from '@/features/auth/ui/controllers/use-get-auth-user.hook.ts';
-import { useLogin } from '@/features/auth/ui/controllers/use-login.hook.ts';
-import { useLogout } from '@/features/auth/ui/controllers/use-logout.hook.ts';
-import { AuthLocator } from '@/features/auth/ui/di/auth.locator.ts';
+import type { AuthUserRequest } from '@/features/auth/domain/interfaces/auth-user-request';
+import { useGetAuthUser } from '@/features/auth/ui/controllers/use-get-auth-user.hook';
+import { useLogin } from '@/features/auth/ui/controllers/use-login.hook';
+import { useLogout } from '@/features/auth/ui/controllers/use-logout.hook';
+import { AuthLocator } from '@/features/auth/ui/di/auth.locator';
 
 export function useAuth() {
 	const navigate = useNavigate();

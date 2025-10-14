@@ -1,4 +1,4 @@
-import type { Id } from '@/common/domain/interfaces/id.ts';
+import type { Id } from '@/common/domain/interfaces/id';
 import type { Mark } from '../entities/mark';
 import type { NewMark } from '../entities/new-mark';
 

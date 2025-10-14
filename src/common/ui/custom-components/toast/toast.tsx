@@ -1,7 +1,7 @@
 import { AlertTriangle, CheckCircle, Info, XCircle, XIcon } from 'lucide-react';
 import { type JSX, useEffect } from 'react';
 import toast from 'react-hot-toast';
-import { Button } from '@/common/ui/shade-ui/components/ui/button.tsx';
+import { Button } from '@/common/ui/shade-ui/components/ui/button';
 
 export type ToastType = 'success' | 'error' | 'info' | 'warning';
 

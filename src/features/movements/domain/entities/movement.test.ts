@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { Movement } from '@/features/movements/domain/entities/movement.ts';
-import { MovementMother } from '@/features/movements/domain/mothers/movement.mother.ts';
+import { Movement } from '@/features/movements/domain/entities/movement';
+import { MovementMother } from '@/features/movements/domain/mothers/movement.mother';
 
 describe('Movement Entity', () => {
 	it('should create an instance using fromPrimitives()', () => {

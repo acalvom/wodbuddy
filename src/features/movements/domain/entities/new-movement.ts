@@ -1,4 +1,4 @@
-import type { NewMovementPrimitives } from '@/features/movements/domain/entities/new-movement.primitives.ts';
+import type { NewMovementPrimitives } from '@/features/movements/domain/entities/new-movement.primitives';
 
 export class NewMovement implements NewMovementPrimitives {
 	readonly name: string;

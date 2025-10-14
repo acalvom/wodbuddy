@@ -1,4 +1,4 @@
-import type { Movement } from '@/features/movements/domain/entities/movement.ts';
+import type { Movement } from '@/features/movements/domain/entities/movement';
 
 type MovementPercentageProps = {
 	movement: Movement;

@@ -1,10 +1,10 @@
 import type { SupabaseClient } from '@supabase/supabase-js';
-import type { AuthUser } from '@/features/auth/domain/entities/auth-user.ts';
-import type { AuthRepository } from '@/features/auth/domain/repositories/auth.repository.ts';
+import type { AuthUser } from '@/features/auth/domain/entities/auth-user';
+import type { AuthRepository } from '@/features/auth/domain/repositories/auth.repository';
 import {
 	authResponseToAuthUserMapper,
 	userResponseToAuthUserMapper
-} from '@/features/auth/infrastructure/mappers/auth-user.mapper.ts';
+} from '@/features/auth/infrastructure/mappers/auth-user.mapper';
 
 export class SupabaseAuthRepository implements AuthRepository {
 	constructor(private readonly supabase: SupabaseClient) {}
