@@ -12,6 +12,10 @@ export class MarkCollection {
 		return new MarkCollection(marks);
 	}
 
+	get count(): number {
+		return this.marks.length;
+	}
+
 	getRecent(limit: number = MarkCollection.DEFAULT_RECENT_LIMIT): Mark[] {
 		return this.marks.slice(0, limit);
 	}
@@ -20,7 +24,12 @@ export class MarkCollection {
 		return this.marks.length > limit;
 	}
 
-	get count(): number {
-		return this.marks.length;
+	isEmpty(): boolean {
+		return this.marks.length === 0;
+	}
+
+	formatTotal() {
+		const plural = this.count === 1 ? 'marca' : 'marcas';
+		return `${this.count} ${plural} en total`;
 	}
 }
