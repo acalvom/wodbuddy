@@ -1,6 +1,6 @@
 import { userEvent } from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { UseAuthHookInteractor, UseAuthHookTO } from '@/features/auth/ui/hooks/use-auth-hook-to';
+import { UseAuthHookInteractor, UseAuthHookTO } from '@/features/auth/ui/hooks/use-auth.hook.to';
 import {
 	AddMovementPageInteractor,
 	AddMovementPageTO

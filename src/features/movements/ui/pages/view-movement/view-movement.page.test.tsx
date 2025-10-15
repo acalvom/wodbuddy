@@ -1,6 +1,6 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { UseAuthHookInteractor, UseAuthHookTO } from '@/features/auth/ui/hooks/use-auth-hook-to';
+
 import { MovementMother } from '@/features/movements/domain/mothers/movement.mother';
 import { renderAppWithRoutes } from '@/test/test-utils';
 
@@ -9,6 +9,7 @@ vi.mock('@/features/auth/ui/hooks/use-auth.hook');
 
 import { Parser } from '@/common/domain/parser/parser';
 import { useAuth } from '@/features/auth/ui/hooks/use-auth.hook';
+import { UseAuthHookInteractor, UseAuthHookTO } from '@/features/auth/ui/hooks/use-auth.hook.to';
 import { useGetMovement } from '@/features/movements/ui/controllers/use-get-movement.hook';
 import { ViewMovementPageInteractor, ViewMovementPageTO } from './percentage-calculator-section/view-movement.page.to';
 

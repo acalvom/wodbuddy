@@ -30,11 +30,13 @@ export function useAuth() {
 	useEffect(() => {
 		let unsubscribe: (() => void) | null = null;
 
-		sessionService.subscribeToAuthChanges(async () => {
-			await queryClient.invalidateQueries({ queryKey: AuthQueryKeys.user() });
-		}).then((unsubscribeFn) => {
-			unsubscribe = unsubscribeFn;
-		});
+		sessionService
+			.subscribeToAuthChanges(async () => {
+				await queryClient.invalidateQueries({ queryKey: AuthQueryKeys.user() });
+			})
+			.then((unsubscribeFn) => {
+				unsubscribe = unsubscribeFn;
+			});
 
 		// Cleanup function para evitar memory leaks
 		return () => {
