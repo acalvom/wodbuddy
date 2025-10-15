@@ -10,6 +10,8 @@ import {
 import { ArrowUpDown, Target, Trash2, Trophy } from 'lucide-react';
 import { useState } from 'react';
 import { DateFormatter } from '@/common/domain/date/date';
+import { ConfirmationDialog } from '@/common/ui/custom-components/confirmation-dialog/confirmation-dialog';
+import { useConfirmation } from '@/common/ui/hooks/use-confirmation.hook';
 import { Button } from '@/common/ui/shade-ui/components/ui/button';
 import {
 	Table,
@@ -21,15 +23,15 @@ import {
 } from '@/common/ui/shade-ui/components/ui/table';
 import type { Mark } from '@/features/marks/domain/entities/mark';
 
-// TODO: refactorizar
 interface MarksTableProps {
 	marks: Mark[];
-	isDeletingMark: boolean;
-	onDeleteMark: (markId: number, markValue: number) => Promise<void>;
+	isPending: boolean;
+	onDelete: (markId: number, markValue: number) => Promise<void>;
 }
 
-export const MarksTable = ({ marks, isDeletingMark, onDeleteMark }: MarksTableProps) => {
+export const MarksTable = ({ marks, isPending, onDelete }: MarksTableProps) => {
 	const [sorting, setSorting] = useState<SortingState>([]);
+	const { confirm, confirmationProps } = useConfirmation();
 
 	const columns: ColumnDef<Mark>[] = [
 		{
@@ -95,17 +97,22 @@ export const MarksTable = ({ marks, isDeletingMark, onDeleteMark }: MarksTablePr
 			cell: ({ row }) => {
 				const mark = row.original;
 				return (
-					<div className="text-right">
-						<Button
-							variant="ghost"
-							size="sm"
-							className="text-destructive hover:text-destructive/80 h-8 w-8 p-0"
-							disabled={isDeletingMark}
-							onClick={() => onDeleteMark(mark.id, mark.value)}
-						>
-							<Trash2 className="h-4 w-4" />
-						</Button>
-					</div>
+					<Button
+						variant="ghost"
+						size="sm"
+						className="text-destructive hover:text-destructive/80 h-8 w-8 p-0"
+						disabled={isPending}
+						onClick={() =>
+							confirm(() => onDelete(mark.id, mark.value), {
+								title: '¿Eliminar marca?',
+								description: `¿Estás seguro de que quieres eliminar la marca de ${mark.value} kg? Esta acción no se puede deshacer.`,
+								confirmText: 'Eliminar',
+								cancelText: 'Cancelar'
+							})
+						}
+					>
+						<Trash2 className="h-4 w-4" />
+					</Button>
 				);
 			}
 		}
@@ -129,77 +136,80 @@ export const MarksTable = ({ marks, isDeletingMark, onDeleteMark }: MarksTablePr
 	const totalMarks = marks?.length || 0;
 
 	return (
-		<div className="w-full">
-			<Table>
-				<TableHeader>
-					{table.getHeaderGroups().map((headerGroup) => (
-						<TableRow key={headerGroup.id} className="border-b">
-							{headerGroup.headers.map((header) => {
-								return (
-									<TableHead key={header.id} className="h-12">
-										{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
-									</TableHead>
-								);
-							})}
-						</TableRow>
-					))}
-				</TableHeader>
-				<TableBody>
-					{table.getRowModel().rows?.length ? (
-						table.getRowModel().rows.map((row) => (
-							<TableRow key={row.id} className="border-b hover:bg-muted/50" data-state={row.getIsSelected() && 'selected'}>
-								{row.getVisibleCells().map((cell) => (
-									<TableCell key={cell.id} className="py-4">
-										{flexRender(cell.column.columnDef.cell, cell.getContext())}
-									</TableCell>
-								))}
+		<>
+			<div className="w-full">
+				<Table>
+					<TableHeader>
+						{table.getHeaderGroups().map((headerGroup) => (
+							<TableRow key={headerGroup.id} className="border-b">
+								{headerGroup.headers.map((header) => {
+									return (
+										<TableHead key={header.id} className="h-12">
+											{header.isPlaceholder ? null : flexRender(header.column.columnDef.header, header.getContext())}
+										</TableHead>
+									);
+								})}
 							</TableRow>
-						))
-					) : (
-						<TableRow>
-							<TableCell colSpan={columns.length} className="h-24 text-center">
-								No hay marcas registradas.
-							</TableCell>
-						</TableRow>
-					)}
-				</TableBody>
-			</Table>
+						))}
+					</TableHeader>
+					<TableBody>
+						{table.getRowModel().rows?.length ? (
+							table.getRowModel().rows.map((row) => (
+								<TableRow key={row.id} className="border-b hover:bg-muted/50" data-state={row.getIsSelected() && 'selected'}>
+									{row.getVisibleCells().map((cell) => (
+										<TableCell key={cell.id} className="py-4">
+											{flexRender(cell.column.columnDef.cell, cell.getContext())}
+										</TableCell>
+									))}
+								</TableRow>
+							))
+						) : (
+							<TableRow>
+								<TableCell colSpan={columns.length} className="h-24 text-center">
+									No hay marcas registradas.
+								</TableCell>
+							</TableRow>
+						)}
+					</TableBody>
+				</Table>
 
-			<div className="mt-8 space-y-4">
-				<div className="flex items-center justify-center space-x-8">
-					<Button
-						className="border-primary"
-						variant="outline"
-						size="sm"
-						onClick={() => table.previousPage()}
-						disabled={!table.getCanPreviousPage()}
-					>
-						Anterior
-					</Button>
-					<div className="flex items-center space-x-1">
-						<p className="text-sm font-medium">
-							Página {table.getState().pagination.pageIndex + 1} de {table.getPageCount()}
+				<div className="mt-8 space-y-4">
+					<div className="flex items-center justify-center space-x-8">
+						<Button
+							className="border-primary"
+							variant="outline"
+							size="sm"
+							onClick={() => table.previousPage()}
+							disabled={!table.getCanPreviousPage()}
+						>
+							Anterior
+						</Button>
+						<div className="flex items-center space-x-1">
+							<p className="text-sm font-medium">
+								Página {table.getState().pagination.pageIndex + 1} de {table.getPageCount()}
+							</p>
+						</div>
+						<Button
+							className="border-primary"
+							variant="outline"
+							size="sm"
+							onClick={() => table.nextPage()}
+							disabled={!table.getCanNextPage()}
+						>
+							Siguiente
+						</Button>
+					</div>
+
+					<div className="text-center">
+						<p className="text-sm text-muted-foreground">
+							Mostrando {table.getState().pagination.pageIndex * table.getState().pagination.pageSize + 1} a{' '}
+							{Math.min((table.getState().pagination.pageIndex + 1) * table.getState().pagination.pageSize, totalMarks)} de{' '}
+							{totalMarks} resultados
 						</p>
 					</div>
-					<Button
-						className="border-primary"
-						variant="outline"
-						size="sm"
-						onClick={() => table.nextPage()}
-						disabled={!table.getCanNextPage()}
-					>
-						Siguiente
-					</Button>
-				</div>
-
-				<div className="text-center">
-					<p className="text-sm text-muted-foreground">
-						Mostrando {table.getState().pagination.pageIndex * table.getState().pagination.pageSize + 1} a{' '}
-						{Math.min((table.getState().pagination.pageIndex + 1) * table.getState().pagination.pageSize, totalMarks)} de{' '}
-						{totalMarks} resultados
-					</p>
 				</div>
 			</div>
-		</div>
+			<ConfirmationDialog {...confirmationProps} />
+		</>
 	);
 };
