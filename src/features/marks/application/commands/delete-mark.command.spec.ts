@@ -4,7 +4,7 @@ import { DeleteMarkCommand } from './delete-mark.command';
 
 describe('DeleteMarkCommand', () => {
 	afterEach(() => vi.clearAllMocks());
-	
+
 	const setup = () => {
 		const markRepository = mock<MarksRepository>();
 		const command = new DeleteMarkCommand(markRepository);

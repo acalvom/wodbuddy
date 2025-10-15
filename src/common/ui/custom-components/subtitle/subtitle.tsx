@@ -6,7 +6,5 @@ export interface SubtitleProps {
 }
 
 export const Subtitle = ({ className, children }: PropsWithChildren<SubtitleProps>) => {
-	return (
-		<h3 className={cn('text-base font-semibold text-secondary mb-3', className)}>{children}</h3>
-	);
+	return <h3 className={cn('text-base font-semibold text-secondary mb-3', className)}>{children}</h3>;
 };

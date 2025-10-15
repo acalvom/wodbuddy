@@ -27,4 +27,4 @@ export const useDeleteMark = (movementId: Id) => {
 			onError: async (error: Error) => console.error('Error deleting mark:', error.message)
 		}
 	);
-}
+};

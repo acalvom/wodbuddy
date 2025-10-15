@@ -4,13 +4,7 @@ import { DateFormatter } from '@/common/domain/date/date';
 import { cn } from '@/common/ui/shade-ui/components/lib/utils';
 import { Button } from '@/common/ui/shade-ui/components/ui/button';
 import { Calendar } from '@/common/ui/shade-ui/components/ui/calendar';
-import {
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage
-} from '@/common/ui/shade-ui/components/ui/form';
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/common/ui/shade-ui/components/ui/form';
 import { Popover, PopoverContent, PopoverTrigger } from '@/common/ui/shade-ui/components/ui/popover';
 
 interface DatePickerFormItemProps<T extends FieldValues> {
@@ -38,9 +32,7 @@ export const DatePickerFormItem = <T extends FieldValues>({
 			name={name}
 			render={({ field }) => (
 				<FormItem className="flex flex-col">
-					<FormLabel className="text-foreground font-medium text-sm mb-2 block">
-						{label}
-					</FormLabel>
+					<FormLabel className="text-foreground font-medium text-sm mb-2 block">{label}</FormLabel>
 					<Popover>
 						<PopoverTrigger asChild>
 							<FormControl>

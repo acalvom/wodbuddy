@@ -16,9 +16,7 @@ export const MarkListItem = ({ mark }: MarkListItemProps) => {
 				!mark.isPr && !mark.isRm && 'bg-card'
 			)}
 		>
-			<span className="text-sm">
-				{mark.createdOn ? DateFormatter.format(mark.createdOn) : 'Sin fecha'}
-			</span>
+			<span className="text-sm">{mark.createdOn ? DateFormatter.format(mark.createdOn) : 'Sin fecha'}</span>
 			<div className="flex items-center gap-2">
 				{mark.isPr && <span className="text-xs text-primary font-bold">PR</span>}
 				{mark.isRm && <span className="text-xs text-secondary font-bold">RM</span>}

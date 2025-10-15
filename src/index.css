@@ -34,7 +34,7 @@
 	--color-destructive: oklch(0.62 0.2 25);
 
 	/* === Icons === */
-	--color-icon-primary-foreground:  oklch(0.7 0.15 235);
+	--color-icon-primary-foreground: oklch(0.7 0.15 235);
 	--color-icon-primary-background: oklch(0.7 0.15 235 / 20%);
 	--color-icon-secondary-foreground: oklch(0.78 0.19 90);
 	--color-icon-secondary-background: oklch(0.78 0.19 90 / 20%);

@@ -1,11 +1,5 @@
 import type { Control, FieldPath, FieldValues } from 'react-hook-form';
-import {
-	FormControl,
-	FormField,
-	FormItem,
-	FormLabel,
-	FormMessage
-} from '@/common/ui/shade-ui/components/ui/form';
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/common/ui/shade-ui/components/ui/form';
 import { Input } from '@/common/ui/shade-ui/components/ui/input';
 
 interface InputFormItemProps<T extends FieldValues> {
@@ -31,9 +25,7 @@ export const InputFormItem = <T extends FieldValues>({
 			name={name}
 			render={({ field }) => (
 				<FormItem>
-					<FormLabel className="text-foreground font-medium text-sm mb-2 block">
-						{label}
-					</FormLabel>
+					<FormLabel className="text-foreground font-medium text-sm mb-2 block">{label}</FormLabel>
 					<FormControl>
 						<Input
 							className={`bg-card border-border text-foreground placeholder:text-muted-foreground 

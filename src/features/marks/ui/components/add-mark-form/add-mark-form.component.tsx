@@ -12,7 +12,6 @@ type AddMarkFormProps = {
 };
 
 export const AddMarkForm = ({ onSubmit, isPending = false }: AddMarkFormProps) => {
-
 	const form = useForm<ZodNewMark>({
 		resolver: zodResolver(ZodNewMarkFormSchema),
 		defaultValues: {

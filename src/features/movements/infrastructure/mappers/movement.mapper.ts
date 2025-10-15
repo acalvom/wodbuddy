@@ -24,6 +24,6 @@ export const newMovementToSupabase = (newMovement: NewMovement): SupabaseNewMove
 	return {
 		name: newMovement.name,
 		rm: newMovement.rm,
-		user_id: newMovement.userId,
+		user_id: newMovement.userId
 	};
 };
